@@ -276,12 +276,12 @@ SERIES = [
 
 GALERIA = [
     ("paineis", "Duas colunas de placas, uma em tons de barro e outra em azul e branco", "Painéis de parede"),
-    ("tigela-ambar", "Tigela de bordas onduladas, cor de mel por fora, com esmalte azul e verde no fundo", "Tigela, esmalte de mel e azul"),
+    ("tigela-ambar", "Peça decorativa de bordas onduladas, cor de mel por fora, com esmalte azul e verde no fundo", "Peça orgânica, esmalte de mel e azul"),
     ("tigela-branca", "Peça branca de bordas ondulantes, como uma flor aberta, sobre uma mesa de madeira", "Peça branca, forma orgânica"),
     ("acrilico-trio", "Três peças da série Acrílico, uma acima da outra, em verde, branco e barro", "Acrílico, trio"),
-    ("tigela-verde", "Tigela verde-oliva brilhante, de bordas onduladas, com jardim ao fundo", "Tigela verde-oliva"),
+    ("tigela-verde", "Peça decorativa verde-oliva brilhante, de bordas onduladas, com jardim ao fundo", "Peça orgânica verde-oliva"),
     ("coluna-terra", "Coluna de placas em tons de barro e marrom, com manchas brancas", "Essências, coluna em barro"),
-    ("tigela-grande", "Tigela grande de cerâmica clara, com bordas irregulares e pinceladas azuis", "Tigela grande"),
+    ("tigela-grande", "Peça decorativa grande de cerâmica clara, com bordas irregulares e pinceladas azuis", "Peça orgânica com pinceladas azuis"),
 ]
 
 # Peças disponíveis (fotos tratadas a partir do que a Sandra mandou no WhatsApp). (foto, título, medida, alt)
@@ -292,46 +292,48 @@ DISPONIVEIS = [
      "Peça oval de cerâmica cinza com esmalte em azul, verde, laranja e vermelho, dentro de caixa de acrílico"),
     ("peca-acrilico-oval-2", "Série Acrílico", "26 × 29 cm",
      "Peça oval de cerâmica cinza com esmalte em vermelho, laranja, lilás e verde, dentro de caixa de acrílico"),
-    ("peca-folha", "Tigela com folhas", "21 × 17 cm",
-     "Tigela branca de bordas curvas com desenho de folhas em tom bronze"),
-    ("peca-tigela-oval", "Tigela oval esmaltada", "19 × 13 cm",
-     "Tigela oval branca com bordas escuras e centro em verde, azul e lilás com esmalte craquelado"),
+    ("peca-folha", "Peça com folhas em bronze", "21 × 17 cm",
+     "Peça decorativa branca de bordas curvas com desenho de folhas em tom bronze"),
+    ("peca-tigela-oval", "Peça oval, verde e azul", "19 × 13 cm",
+     "Peça decorativa oval branca com bordas escuras e centro em verde, azul e lilás com esmalte craquelado"),
     ("peca-branca", "Peça branca orgânica", "25 × 22 cm",
      "Peça branca de bordas onduladas, como uma flor aberta"),
     ("peca-branca-2", "Peça branca orgânica", "25 × 11 cm",
      "Peça branca alongada, de bordas onduladas e levantadas nas pontas"),
-    ("peca-cumbuca", "Cumbuca de barro e esmalte branco", "14 cm",
-     "Cumbuca arredondada de barro cinza com borda irregular e interior em esmalte branco pontilhado"),
-    ("peca-tigela-22", "Tigela esmaltada com relevo", "22 cm",
-     "Tigela redonda de borda ondulada, com esmalte em tons de areia, lilás e mel por dentro e relevo escuro por fora"),
-    ("peca-travessa", "Travessa oval esmaltada", "33 × 20 cm",
-     "Travessa oval de barro escuro com esmalte em azul, âmbar e um centro verde brilhante"),
-    ("peca-travessa-textura", "Travessa com textura", "25 × 14 cm",
-     "Travessa de borda irregular, escura por fora e com textura em relevo dourada e marrom por dentro"),
-    ("peca-prato-verde", "Prato fundo verde-oliva", "17 cm",
-     "Prato fundo de borda ondulada em esmalte verde-oliva, com centro escuro brilhante"),
-    ("peca-travessinha-azul", "Travessinha azul cobalto", "16 × 11 cm",
-     "Travessinha oval com borda metálica escura e centro em esmalte azul cobalto"),
+    ("peca-cumbuca", "Peça de barro e esmalte branco", "14 cm",
+     "Peça decorativa arredondada de barro cinza com borda irregular e interior em esmalte branco pontilhado"),
+    ("peca-tigela-22", "Peça com relevo, tons de areia", "22 cm",
+     "Peça decorativa redonda de borda ondulada, com esmalte em tons de areia, lilás e mel por dentro e relevo escuro por fora"),
+    ("peca-travessa", "Peça oval, centro verde", "33 × 20 cm",
+     "Peça decorativa oval de barro escuro com esmalte em azul, âmbar e um centro verde brilhante"),
+    ("peca-travessa-textura", "Peça com textura dourada", "25 × 14 cm",
+     "Peça decorativa de borda irregular, escura por fora e com textura em relevo dourada e marrom por dentro"),
+    ("peca-prato-verde", "Peça verde-oliva", "17 cm",
+     "Peça decorativa de borda ondulada em esmalte verde-oliva, com centro escuro brilhante"),
+    ("peca-travessinha-azul", "Peça azul cobalto", "16 × 11 cm",
+     "Peça decorativa oval com borda metálica escura e centro em esmalte azul cobalto"),
     ("peca-turquesa", "Peça orgânica turquesa", "15 × 10,5 cm",
      "Pequena peça de bordas dobradas em esmalte verde-água brilhante, com veio azul e prata no fundo"),
     ("peca-verde-escura", "Peça orgânica verde-escura", "19 × 14 cm",
      "Peça de bordas onduladas em esmalte verde-escuro brilhante, com veios azul-turquesa e cobre no fundo"),
-    ("peca-prato-azul-verde", "Prato fundo com centro esmaltado", "18 × 14,5 cm",
-     "Prato fundo de borda irregular em esmalte claro acinzentado, com centro em azul e verde craquelado"),
-    ("peca-tigela-20", "Tigela de barro com esmalte furta-cor", "20 cm",
-     "Tigela de barro cinza de borda ondulada, com esmalte por dentro em tons de lilás, azul, mel e verde"),
-    ("peca-travessa-escura", "Travessa orgânica esmaltada", "35 × 22 cm",
-     "Travessa grande de forma orgânica, em esmalte marrom-escuro brilhante com pontinhos dourados"),
-    ("peca-tigela-oliva-grande", "Tigela grande verde-oliva", "28 × 31 cm",
-     "Tigela grande de bordas dobradas, em esmalte verde-oliva com reflexos dourados e borda escura"),
+    ("peca-prato-azul-verde", "Peça com centro azul e verde", "18 × 14,5 cm",
+     "Peça decorativa de borda irregular em esmalte claro acinzentado, com centro em azul e verde craquelado"),
+    ("peca-tigela-20", "Peça de barro, esmalte furta-cor", "20 cm",
+     "Peça decorativa de barro cinza de borda ondulada, com esmalte por dentro em tons de lilás, azul, mel e verde"),
+    ("peca-travessa-escura", "Peça orgânica marrom-escura", "35 × 22 cm",
+     "Peça decorativa grande de forma orgânica, em esmalte marrom-escuro brilhante com pontinhos dourados"),
+    ("peca-tigela-oliva-grande", "Peça orgânica verde-oliva", "28 × 31 cm",
+     "Peça decorativa grande de bordas dobradas, em esmalte verde-oliva com reflexos dourados e borda escura"),
 ]
 
 PERGUNTAS = [
-    ("A peça vai ficar igual à da foto?",
-     "Cada peça é única. Os esmaltes reagem de um jeito diferente a cada queima, então a sua peça terá a mesma série, as mesmas cores e o mesmo cuidado, mas nunca será idêntica à da foto. É isso que faz dela uma peça só sua."),
-    ("Posso encomendar em outro tamanho ou com outras cores?",
-     "Pode conversar comigo pelo WhatsApp e me contar o que você imagina. Eu digo o que é possível fazer e mando o orçamento."),
-    ("Quanto tempo demora?",
+    ("Posso encomendar uma peça igual à da foto?",
+     "Não. Cada peça é única: a argila, a modelagem, o esmalte e o forno são do momento, e o que saiu não sai de novo. Posso fazer uma peça na mesma linha, até em outra cor, mas ela será outra peça, só sua."),
+    ("Que tipo de peça você faz?",
+     "Peças únicas para decoração, para uma mesinha de canto, a mesa de centro, o lavabo ou o criado-mudo, e peças de parede. Não faço pratos nem louças para uso no dia a dia."),
+    ("Faz painéis de parede sob encomenda?",
+     "Sim. São peças de parede individuais que, juntas, compõem um painel maior. Nesse caso conversamos direto, para pensar o tamanho, as cores e o espaço."),
+    ("Quanto tempo demora uma encomenda?",
      "Depende da peça, do tamanho e da quantidade. O prazo vai combinado no orçamento."),
     ("Como é o pagamento?",
      "A forma de pagamento é combinada com você no orçamento."),
@@ -353,14 +355,14 @@ def index():
   <div>
     <p class="olho">Ateliê de cerâmica · São Paulo</p>
     <h1>A arte do fogo, que tudo transforma.</h1>
-    <p class="sub">Peças únicas de cerâmica para a parede e para a mesa, feitas à mão por Sandra Grazioli. Do barro ao forno, cada uma no seu tempo.</p>
+    <p class="sub">Peças únicas de cerâmica para decorar a parede e a casa, feitas à mão por Sandra Grazioli. Do barro ao forno, cada uma no seu tempo.</p>
     <div class="acoes"><a class="btn" href="obras.html">Ver as obras</a>{botao_whats(classe="btn-linha")}</div>
   </div>
   <figure>{img("essencias-azul", "Conjunto de nove placas da série Essências, em azuis, verde e branco, com molduras de madeira", ' loading="eager" fetchpriority="high"').replace(' loading="lazy"', '')}</figure>
 </div></section>
 """
     return pagina("Sandra Grazioli · Arte Cerâmica",
-                  "Peças únicas de cerâmica feitas à mão por Sandra Grazioli: séries Essências, Texturas e Acrílico, painéis e tigelas. Encomendas pelo WhatsApp.",
+                  "Peças únicas de cerâmica feitas à mão por Sandra Grazioli: séries Essências, Texturas e Acrílico, painéis de parede e peças únicas para decoração. Encomendas pelo WhatsApp.",
                   corpo, atual="")
 
 
@@ -373,22 +375,22 @@ def obras():
         for f, t, m, alt in DISPONIVEIS)
     corpo = f"""
 <section class="bloco branco"><div class="wrap">
-  {cab_pagina("Obras", "Três jeitos de levar a cerâmica para a parede", "Todas as peças são feitas uma a uma. Cores, tamanhos e combinações podem ser pensados junto com você.")}
+  {cab_pagina("Obras", "Três jeitos de levar a cerâmica para a parede", "Cada peça é feita uma a uma e é única. As peças de parede também podem compor um painel maior, sob encomenda.")}
   <div class="series">{series}</div>
 </div></section>
 <section class="bloco linho" id="disponiveis" aria-labelledby="t-disp"><div class="wrap">
-  <div class="cab-bloco"><p class="olho">Pronta entrega</p><h2 id="t-disp">Peças disponíveis</h2>
-    <p>Peças prontas, que podem ir para a sua casa agora. Para saber o valor ou reservar, é só me chamar.</p></div>
+  <div class="cab-bloco"><p class="olho">Pronta entrega</p><h2 id="t-disp">Peças únicas para decoração</h2>
+    <p>Para uma mesinha de canto, a mesa de centro, o lavabo ou o criado-mudo. Cada peça é única: o que saiu do forno não se repete. Para saber o valor ou reservar, é só me chamar.</p></div>
   <div class="disp">{disponiveis}</div>
 </div></section>
 <section class="bloco" aria-labelledby="t-gal"><div class="wrap">
-  <div class="cab-bloco"><p class="olho">Do ateliê</p><h2 id="t-gal">Painéis, tigelas e peças únicas</h2></div>
+  <div class="cab-bloco"><p class="olho">Do ateliê</p><h2 id="t-gal">Painéis de parede e peças de decoração</h2></div>
   <div class="galeria">{galeria}</div>
   <p class="aviso-peca italico">Cada peça é única: o esmalte reage de um jeito em cada queima, por isso nenhuma sai igual à outra.</p>
   <p style="margin-top:34px">{botao_whats("Perguntar sobre uma peça")}</p>
 </div></section>
 """
-    return pagina("Obras · Sandra Grazioli", "As séries Essências, Texturas e Acrílico, painéis e tigelas de Sandra Grazioli.", corpo, atual="obras")
+    return pagina("Obras · Sandra Grazioli", "As séries Essências, Texturas e Acrílico, painéis de parede e peças únicas para decoração de Sandra Grazioli.", corpo, atual="obras")
 
 
 def sobre():
@@ -429,7 +431,7 @@ def encomendar():
     passos_html = "".join(f'<li><h3>{t}</h3><p>{d}</p></li>' for t, d in passos)
     corpo = f"""
 <section class="bloco branco"><div class="wrap">
-  {cab_pagina("Como encomendar", "Simples, pelo WhatsApp", "Não tem carrinho nem cadastro. Você conversa direto comigo.")}
+  {cab_pagina("Como encomendar", "Simples, pelo WhatsApp", "Não tem carrinho nem cadastro. Você conversa direto comigo, seja para uma peça pronta, seja para um painel de parede sob encomenda.")}
   <ol class="passos">{passos_html}</ol>
   <p style="margin-top:40px">{botao_whats("Pedir um orçamento", msg="Olá, Sandra! Gostaria de pedir um orçamento.")}</p>
 </div></section>
