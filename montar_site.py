@@ -1,5 +1,6 @@
 """Monta o site sandragrazioli.com.br (vitrine): index.html e privacidade.html.
 Os dados que ainda faltam ficam em DADOS. Quando chegarem, é só preencher e rodar de novo: python3 montar_site.py"""
+import json
 from pathlib import Path
 from urllib.parse import quote
 
@@ -315,46 +316,10 @@ GALERIA = [
 ]
 
 # Peças disponíveis (fotos tratadas a partir do que a Sandra mandou no WhatsApp). (foto, título, medida, alt)
-DISPONIVEIS = [
-    ("peca-acrilico-noite", "Série Acrílico", "16 × 16 cm",
-     "Placa quadrada de cerâmica escura com relevo de escamas e um centro claro, dentro de caixa de acrílico"),
-    ("peca-acrilico-oval", "Série Acrílico", "20 × 29 cm",
-     "Peça oval de cerâmica cinza com esmalte em azul, verde, laranja e vermelho, dentro de caixa de acrílico"),
-    ("peca-acrilico-oval-2", "Série Acrílico", "26 × 29 cm",
-     "Peça oval de cerâmica cinza com esmalte em vermelho, laranja, lilás e verde, dentro de caixa de acrílico"),
-    ("peca-folha", "Peça com folhas em bronze", "21 × 17 cm",
-     "Peça decorativa branca de bordas curvas com desenho de folhas em tom bronze"),
-    ("peca-tigela-oval", "Peça oval, verde e azul", "19 × 13 cm",
-     "Peça decorativa oval branca com bordas escuras e centro em verde, azul e lilás com esmalte craquelado"),
-    ("peca-branca", "Peça branca orgânica", "25 × 22 cm",
-     "Peça branca de bordas onduladas, como uma flor aberta"),
-    ("peca-branca-2", "Peça branca orgânica", "25 × 11 cm",
-     "Peça branca alongada, de bordas onduladas e levantadas nas pontas"),
-    ("peca-cumbuca", "Peça de barro e esmalte branco", "14 cm",
-     "Peça decorativa arredondada de barro cinza com borda irregular e interior em esmalte branco pontilhado"),
-    ("peca-tigela-22", "Peça com relevo, tons de areia", "22 cm",
-     "Peça decorativa redonda de borda ondulada, com esmalte em tons de areia, lilás e mel por dentro e relevo escuro por fora"),
-    ("peca-travessa", "Peça oval, centro verde", "33 × 20 cm",
-     "Peça decorativa oval de barro escuro com esmalte em azul, âmbar e um centro verde brilhante"),
-    ("peca-travessa-textura", "Peça com textura dourada", "25 × 14 cm",
-     "Peça decorativa de borda irregular, escura por fora e com textura em relevo dourada e marrom por dentro"),
-    ("peca-prato-verde", "Peça verde-oliva", "17 cm",
-     "Peça decorativa de borda ondulada em esmalte verde-oliva, com centro escuro brilhante"),
-    ("peca-travessinha-azul", "Peça azul cobalto", "16 × 11 cm",
-     "Peça decorativa oval com borda metálica escura e centro em esmalte azul cobalto"),
-    ("peca-turquesa", "Peça orgânica turquesa", "15 × 10,5 cm",
-     "Pequena peça de bordas dobradas em esmalte verde-água brilhante, com veio azul e prata no fundo"),
-    ("peca-verde-escura", "Peça orgânica verde-escura", "19 × 14 cm",
-     "Peça de bordas onduladas em esmalte verde-escuro brilhante, com veios azul-turquesa e cobre no fundo"),
-    ("peca-prato-azul-verde", "Peça com centro azul e verde", "18 × 14,5 cm",
-     "Peça decorativa de borda irregular em esmalte claro acinzentado, com centro em azul e verde craquelado"),
-    ("peca-tigela-20", "Peça de barro, esmalte furta-cor", "20 cm",
-     "Peça decorativa de barro cinza de borda ondulada, com esmalte por dentro em tons de lilás, azul, mel e verde"),
-    ("peca-travessa-escura", "Peça orgânica marrom-escura", "35 × 22 cm",
-     "Peça decorativa grande de forma orgânica, em esmalte marrom-escuro brilhante com pontinhos dourados"),
-    ("peca-tigela-oliva-grande", "Peça orgânica verde-oliva", "28 × 31 cm",
-     "Peça decorativa grande de bordas dobradas, em esmalte verde-oliva com reflexos dourados e borda escura"),
-]
+# Peças disponíveis: ficam em pecas.json (fácil de editar). tipo = "parede" ou "decoracao".
+PECAS = json.loads((AQUI / "pecas.json").read_text(encoding="utf-8"))
+DISPONIVEIS = [(p["foto"], p["titulo"], p["medida"], p["descricao_foto"]) for p in PECAS if p.get("disponivel", True)]
+TIPO = {p["titulo"] + p["medida"]: p.get("tipo", "decoracao") for p in PECAS}
 
 PERGUNTAS = [
     ("Posso encomendar uma peça igual à da foto?",
@@ -410,8 +375,8 @@ def cartoes(lista):
         for f, t, m, alt in lista)
 
 
-def de_parede(t):
-    return t.startswith("Série")
+def de_parede(t, m=""):
+    return TIPO.get(t + m, "decoracao") == "parede" if m else t.startswith("Série")
 
 
 def obras():
@@ -441,7 +406,7 @@ def paineis():
 <section class="bloco linho" id="parede-disponiveis" aria-labelledby="t-pd"><div class="wrap">
   <div class="cab-bloco"><p class="olho">Pronta entrega</p><h2 id="t-pd">Peças de parede disponíveis</h2>
     <p>Peças prontas para a parede, que também podem começar um painel. Cada uma é única. Para saber o valor ou reservar, é só me chamar.</p></div>
-  <div class="disp">{cartoes([d for d in DISPONIVEIS if de_parede(d[1])])}</div>
+  <div class="disp">{cartoes([d for d in DISPONIVEIS if de_parede(d[1], d[2])])}</div>
 </div></section>
 <section class="bloco" aria-labelledby="t-gal"><div class="wrap">
   <div class="cab-bloco"><p class="olho">Do ateliê</p><h2 id="t-gal">Painéis montados</h2>
@@ -454,7 +419,7 @@ def paineis():
 
 
 def pecas():
-    disponiveis = cartoes([d for d in DISPONIVEIS if not de_parede(d[1])])
+    disponiveis = cartoes([d for d in DISPONIVEIS if not de_parede(d[1], d[2])])
     corpo = f"""
 <section class="bloco linho" id="disponiveis"><div class="wrap">
   {cab_pagina("Peças", "Peças únicas para decoração", "Entre um painel e outro, modelo pecinhas na hora, com o que o barro pede. Ficam lindas numa mesinha de canto, na mesa de centro, no lavabo ou no criado-mudo, e são um presente especial. Cada uma é única: o que saiu do forno não se repete. Para saber o valor ou reservar, é só me chamar.")}

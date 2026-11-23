@@ -1,0 +1,154 @@
+[
+  {
+    "foto": "peca-acrilico-noite",
+    "titulo": "Série Acrílico",
+    "medida": "16 × 16 cm",
+    "descricao_foto": "Placa quadrada de cerâmica escura com relevo de escamas e um centro claro, dentro de caixa de acrílico",
+    "tipo": "parede",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-acrilico-oval",
+    "titulo": "Série Acrílico",
+    "medida": "20 × 29 cm",
+    "descricao_foto": "Peça oval de cerâmica cinza com esmalte em azul, verde, laranja e vermelho, dentro de caixa de acrílico",
+    "tipo": "parede",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-acrilico-oval-2",
+    "titulo": "Série Acrílico",
+    "medida": "26 × 29 cm",
+    "descricao_foto": "Peça oval de cerâmica cinza com esmalte em vermelho, laranja, lilás e verde, dentro de caixa de acrílico",
+    "tipo": "parede",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-folha",
+    "titulo": "Peça com folhas em bronze",
+    "medida": "21 × 17 cm",
+    "descricao_foto": "Peça decorativa branca de bordas curvas com desenho de folhas em tom bronze",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-tigela-oval",
+    "titulo": "Peça oval, verde e azul",
+    "medida": "19 × 13 cm",
+    "descricao_foto": "Peça decorativa oval branca com bordas escuras e centro em verde, azul e lilás com esmalte craquelado",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-branca",
+    "titulo": "Peça branca orgânica",
+    "medida": "25 × 22 cm",
+    "descricao_foto": "Peça branca de bordas onduladas, como uma flor aberta",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-branca-2",
+    "titulo": "Peça branca orgânica",
+    "medida": "25 × 11 cm",
+    "descricao_foto": "Peça branca alongada, de bordas onduladas e levantadas nas pontas",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-cumbuca",
+    "titulo": "Peça de barro e esmalte branco",
+    "medida": "14 cm",
+    "descricao_foto": "Peça decorativa arredondada de barro cinza com borda irregular e interior em esmalte branco pontilhado",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-tigela-22",
+    "titulo": "Peça com relevo, tons de areia",
+    "medida": "22 cm",
+    "descricao_foto": "Peça decorativa redonda de borda ondulada, com esmalte em tons de areia, lilás e mel por dentro e relevo escuro por fora",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-travessa",
+    "titulo": "Peça oval, centro verde",
+    "medida": "33 × 20 cm",
+    "descricao_foto": "Peça decorativa oval de barro escuro com esmalte em azul, âmbar e um centro verde brilhante",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-travessa-textura",
+    "titulo": "Peça com textura dourada",
+    "medida": "25 × 14 cm",
+    "descricao_foto": "Peça decorativa de borda irregular, escura por fora e com textura em relevo dourada e marrom por dentro",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-prato-verde",
+    "titulo": "Peça verde-oliva",
+    "medida": "17 cm",
+    "descricao_foto": "Peça decorativa de borda ondulada em esmalte verde-oliva, com centro escuro brilhante",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-travessinha-azul",
+    "titulo": "Peça azul cobalto",
+    "medida": "16 × 11 cm",
+    "descricao_foto": "Peça decorativa oval com borda metálica escura e centro em esmalte azul cobalto",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-turquesa",
+    "titulo": "Peça orgânica turquesa",
+    "medida": "15 × 10,5 cm",
+    "descricao_foto": "Pequena peça de bordas dobradas em esmalte verde-água brilhante, com veio azul e prata no fundo",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-verde-escura",
+    "titulo": "Peça orgânica verde-escura",
+    "medida": "19 × 14 cm",
+    "descricao_foto": "Peça de bordas onduladas em esmalte verde-escuro brilhante, com veios azul-turquesa e cobre no fundo",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-prato-azul-verde",
+    "titulo": "Peça com centro azul e verde",
+    "medida": "18 × 14,5 cm",
+    "descricao_foto": "Peça decorativa de borda irregular em esmalte claro acinzentado, com centro em azul e verde craquelado",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-tigela-20",
+    "titulo": "Peça de barro, esmalte furta-cor",
+    "medida": "20 cm",
+    "descricao_foto": "Peça decorativa de barro cinza de borda ondulada, com esmalte por dentro em tons de lilás, azul, mel e verde",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-travessa-escura",
+    "titulo": "Peça orgânica marrom-escura",
+    "medida": "35 × 22 cm",
+    "descricao_foto": "Peça decorativa grande de forma orgânica, em esmalte marrom-escuro brilhante com pontinhos dourados",
+    "tipo": "decoracao",
+    "disponivel": true
+  },
+  {
+    "foto": "peca-tigela-oliva-grande",
+    "titulo": "Peça orgânica verde-oliva",
+    "medida": "28 × 31 cm",
+    "descricao_foto": "Peça decorativa grande de bordas dobradas, em esmalte verde-oliva com reflexos dourados e borda escura",
+    "tipo": "decoracao",
+    "disponivel": true
+  }
+]
