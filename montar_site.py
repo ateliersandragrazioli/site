@@ -316,6 +316,10 @@ DISPONIVEIS = [
      "Pequena peça de bordas dobradas em esmalte verde-água brilhante, com veio azul e prata no fundo"),
     ("peca-verde-escura", "Peça orgânica verde-escura", "19 × 14 cm",
      "Peça de bordas onduladas em esmalte verde-escuro brilhante, com veios azul-turquesa e cobre no fundo"),
+    ("peca-prato-azul-verde", "Prato fundo com centro esmaltado", "18 × 14,5 cm",
+     "Prato fundo de borda irregular em esmalte claro acinzentado, com centro em azul e verde craquelado"),
+    ("peca-tigela-20", "Tigela de barro com esmalte furta-cor", "20 cm",
+     "Tigela de barro cinza de borda ondulada, com esmalte por dentro em tons de lilás, azul, mel e verde"),
 ]
 
 PERGUNTAS = [
