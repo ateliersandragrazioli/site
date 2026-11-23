@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Como encomendar · Sandra Grazioli</title>
+<meta name="description" content="Como encomendar uma peça de Sandra Grazioli: orçamento pelo WhatsApp, Pix, prazo e entrega.">
+<meta property="og:title" content="Como encomendar · Sandra Grazioli">
+<meta property="og:description" content="Como encomendar uma peça de Sandra Grazioli: orçamento pelo WhatsApp, Pix, prazo e entrega.">
+<meta property="og:image" content="https://sandragrazioli.com.br/fotos/essencias-azul.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fontes/marcellus.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Marcellus"; src: url(fontes/marcellus.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: "Jost"; src: url(fontes/jost.woff2) format("woff2"); font-weight: 300 500; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; src: url(fontes/cormorant-italico.woff2) format("woff2"); font-style: italic; font-display: swap; }
+:root { --branco:#f7f6f3; --papel:#ffffff; --linho:#ece5da; --pedra:#d6cfc4; --argila:#6b5440; --azul:#2e5662; --tinta:#2f261f; --apoio:#5f554c; --fio:#e2ddd4; color-scheme: light; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { margin: 0; background: var(--branco); color: var(--tinta); font-family: "Jost", Arial, sans-serif; font-weight: 300; font-size: 18px; line-height: 1.65; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; border-radius: 2px; }
+.pular { position: absolute; left: -9999px; top: 8px; background: var(--tinta); color: #fff; padding: 10px 16px; z-index: 50; }
+.pular:focus { left: 16px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 max(20px, env(safe-area-inset-left)); }
+h1, h2, h3 { font-family: "Marcellus", Georgia, serif; font-weight: 400; letter-spacing: .04em; line-height: 1.2; margin: 0; }
+h2 { font-size: clamp(30px, 4vw, 44px); }
+.olho { font-size: 13px; letter-spacing: .32em; text-transform: uppercase; color: var(--argila); margin: 0 0 14px; font-weight: 400; }
+.italico { font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; }
+.falta { display: inline-block; font-size: 13px; letter-spacing: .04em; background: #fff3c4; color: #5a4a00; border: 1px dashed #b39500; padding: 1px 8px; border-radius: 4px; }
+
+/* Topo */
+.topo { position: sticky; top: 0; z-index: 20; background: rgba(247,246,243,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--fio); }
+.topo .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
+.marca { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.marca-txt { display: grid; }
+.marca-nome { font-family: "Marcellus", serif; text-transform: uppercase; letter-spacing: .14em; font-size: 19px; line-height: 1.1; }
+.marca-desc { font-size: 10px; letter-spacing: .42em; text-transform: uppercase; color: var(--apoio); margin-top: 4px; }
+.menu { display: flex; gap: 26px; align-items: center; font-size: 15px; }
+.menu a { text-decoration: none; padding: 6px 0; }
+.menu a:hover { color: var(--azul); }
+.menu a[aria-current=page] { color: var(--azul); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+.menu .btn { padding: 10px 18px; font-size: 14px; }
+.menu-btn { display: none; background: none; border: 1px solid var(--pedra); border-radius: 6px; font: inherit; font-size: 15px; padding: 8px 14px; color: var(--tinta); cursor: pointer; }
+@media (max-width: 900px) {
+  .menu-btn { display: block; }
+  .menu { display: none; position: absolute; top: 76px; left: 0; right: 0; background: var(--branco); flex-direction: column; align-items: stretch; gap: 0; padding: 8px 20px 20px; border-bottom: 1px solid var(--fio); }
+  .menu.aberto { display: flex; }
+  .menu a { padding: 14px 0; border-bottom: 1px solid var(--fio); font-size: 18px; }
+  .menu .btn { margin-top: 14px; text-align: center; border-bottom: 0; }
+  .marca-nome { font-size: 16px; }
+}
+
+.btn { display: inline-block; background: var(--azul); color: #fff; text-decoration: none; padding: 15px 28px; border-radius: 4px; font-weight: 400; letter-spacing: .04em; font-size: 17px; }
+.btn:hover { background: #23434d; }
+.btn-linha { display: inline-block; color: var(--tinta); text-decoration: none; padding: 14px 26px; border: 1px solid var(--tinta); border-radius: 4px; font-size: 17px; }
+.btn-linha:hover { background: var(--tinta); color: #fff; }
+
+/* Abertura */
+.abertura { padding: 64px 0 80px; }
+.abertura .wrap { display: grid; grid-template-columns: 1fr 1.05fr; gap: 64px; align-items: center; }
+.abertura h1 { font-size: clamp(38px, 5.4vw, 66px); letter-spacing: .02em; }
+.abertura p.sub { font-size: 20px; color: var(--apoio); max-width: 30em; margin: 22px 0 34px; }
+.abertura .acoes { display: flex; gap: 14px; flex-wrap: wrap; }
+.abertura figure { margin: 0; background: var(--papel); padding: 28px; box-shadow: 0 30px 60px -30px rgba(47,38,31,.35); }
+.abertura figure img { aspect-ratio: 4 / 4.4; object-fit: cover; width: 100%; }
+@media (max-width: 860px) { .abertura .wrap { grid-template-columns: 1fr; gap: 40px; } .abertura { padding-top: 36px; } }
+
+.inicial { min-height: calc(100svh - 76px); display: grid; align-items: center; padding: 40px 0; }
+.h-pag { font-size: clamp(32px, 4.6vw, 52px); }
+.retrato-vazio { aspect-ratio: 4 / 5; background: var(--pedra); display: grid; place-content: center; text-align: center; gap: 10px; color: var(--apoio); font-family: "Marcellus", serif; letter-spacing: .1em; font-size: 20px; }
+main { min-height: 50vh; }
+/* Séries */
+section.bloco { padding: 90px 0; }
+.bloco.linho { background: var(--linho); }
+.bloco.branco { background: var(--papel); }
+.cab-bloco { max-width: 680px; margin-bottom: 48px; }
+.cab-bloco p { color: var(--apoio); font-size: 19px; margin: 14px 0 0; }
+.series { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.serie img { aspect-ratio: 3 / 4; object-fit: cover; width: 100%; background: var(--pedra); }
+.serie h3 { font-size: 26px; margin: 22px 0 8px; }
+.serie p { margin: 0; color: var(--apoio); }
+@media (max-width: 860px) { .series { grid-template-columns: 1fr; gap: 48px; } }
+
+/* Galeria */
+.galeria { columns: 3 280px; column-gap: 20px; }
+.galeria figure { margin: 0 0 20px; break-inside: avoid; }
+.galeria figcaption { font-size: 15px; color: var(--apoio); margin-top: 8px; }
+.aviso-peca { margin-top: 30px; font-size: 22px; color: var(--argila); max-width: 34em; }
+
+/* Sobre */
+.sobre { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
+.sobre img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
+.sobre p { margin: 0 0 18px; }
+.citacao { font-size: 30px; line-height: 1.3; color: var(--argila); margin: 28px 0 0; padding-left: 22px; border-left: 2px solid var(--pedra); }
+@media (max-width: 860px) { .sobre { grid-template-columns: 1fr; gap: 36px; } }
+
+/* Como encomendar */
+.passos { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; counter-reset: p; }
+.passos li { counter-increment: p; border-top: 1px solid var(--tinta); padding-top: 20px; }
+.passos li::before { content: counter(p, decimal-leading-zero); font-family: "Marcellus", serif; font-size: 15px; letter-spacing: .2em; color: var(--argila); }
+.passos h3 { font-size: 22px; margin: 10px 0 8px; }
+.passos p { margin: 0; color: var(--apoio); font-size: 17px; }
+@media (max-width: 860px) { .passos { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .passos { grid-template-columns: 1fr; } }
+
+/* Lojas */
+.lojas { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; list-style: none; padding: 0; margin: 0; }
+.lojas li { background: var(--papel); border: 1px solid var(--fio); padding: 24px; }
+.lojas b { font-family: "Marcellus", serif; font-weight: 400; font-size: 21px; letter-spacing: .04em; display: block; }
+.lojas span { color: var(--apoio); font-size: 16px; }
+
+/* Perguntas */
+.perguntas { max-width: 820px; }
+.perguntas details { border-bottom: 1px solid var(--pedra); }
+.perguntas summary { cursor: pointer; padding: 22px 36px 22px 0; font-size: 20px; font-weight: 400; list-style: none; position: relative; }
+.perguntas summary::-webkit-details-marker { display: none; }
+.perguntas summary::after { content: "+"; position: absolute; right: 4px; top: 18px; font-size: 26px; color: var(--argila); }
+.perguntas details[open] summary::after { content: "–"; }
+.perguntas details p { margin: 0 0 22px; color: var(--apoio); }
+
+/* Contato */
+.contato { text-align: center; }
+.contato h2 { margin-bottom: 16px; }
+.contato p { color: var(--apoio); font-size: 19px; max-width: 34em; margin: 0 auto 32px; }
+.contato .acoes { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.contato .dados { margin-top: 34px; font-size: 17px; display: grid; gap: 6px; }
+
+/* Rodapé */
+.rodape { background: var(--tinta); color: #e9e3da; padding: 56px 0 40px; font-size: 16px; }
+.rodape .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
+.rodape .marca-desc { color: #c9bfb2; }
+.rodape h3 { font-family: "Jost", sans-serif; font-size: 13px; letter-spacing: .28em; text-transform: uppercase; font-weight: 400; color: #c9bfb2; margin-bottom: 14px; }
+.rodape ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.rodape a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(233,227,218,.4); }
+.rodape .final { grid-column: 1 / -1; border-top: 1px solid rgba(233,227,218,.18); padding-top: 22px; font-size: 14px; color: #c9bfb2; }
+@media (max-width: 760px) { .rodape .wrap { grid-template-columns: 1fr; } }
+
+/* Página de texto */
+.texto { max-width: 780px; padding: 60px 0 90px; }
+.texto h1 { font-size: clamp(34px, 5vw, 48px); margin-bottom: 10px; }
+.texto h2 { font-size: 26px; margin: 42px 0 12px; }
+.texto p, .texto li { color: #3e352e; }
+.texto ul { padding-left: 22px; }
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo"><div class="wrap">
+  <a class="marca" href="index.html" aria-label="Sandra Grazioli Arte Cerâmica, página inicial"><svg width="40" height="40" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect x="3" y="3" width="94" height="94" rx="3" fill="none" stroke="#2f261f" stroke-width="4"/><rect x="12" y="12" width="76" height="76" rx="2" fill="#6b5440"/><path d="M12 62 C28 50 40 76 57 59 S82 36 88 41 V88 H12 Z" fill="#f1ece3"/></svg><span class="marca-txt"><span class="marca-nome">Sandra Grazioli</span><span class="marca-desc">Arte Cerâmica</span></span></a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+  <nav id="menu" class="menu" aria-label="Menu principal"><a href="obras.html">Obras</a><a href="sobre.html">Sobre</a><a href="encomendar.html" aria-current=page>Como encomendar</a><a href="lojas.html">Onde encontrar</a><a href="contato.html">Contato</a><a class="btn" href="contato.html">WhatsApp</a></nav>
+</div></header>
+<main id="conteudo">
+
+<section class="bloco branco"><div class="wrap">
+  <div class="cab-bloco"><p class="olho">Como encomendar</p><h1 class="h-pag">Simples, pelo WhatsApp</h1><p>Não tem carrinho nem cadastro. Você conversa direto comigo.</p></div>
+  <ol class="passos"><li><h3>Me chame no WhatsApp</h3><p>Conte qual peça chamou sua atenção, ou o que você imagina para o seu espaço.</p></li><li><h3>Receba o orçamento</h3><p>Eu mando as medidas, o valor, o prazo e a entrega, tudo por escrito.</p></li><li><h3>Reserve com o Pix</h3><p>Metade para começar. Aí a peça entra no ateliê: modelagem, esmalte e queima.</p></li><li><h3>Receba em casa</h3><p>Em cerca de 20 a 30 dias. A outra metade é paga na entrega.</p></li></ol>
+  <p style="margin-top:40px"><a class="btn" href="contato.html">Pedir um orçamento</a></p>
+</div></section>
+<section class="bloco linho" id="perguntas"><div class="wrap">
+  <div class="cab-bloco"><p class="olho">Perguntas frequentes</p><h2>Antes de encomendar</h2></div>
+  <div class="perguntas"><details><summary>A peça vai ficar igual à da foto?</summary><p>Cada peça é única. Os esmaltes reagem de um jeito diferente a cada queima, então a sua peça terá a mesma série, as mesmas cores e o mesmo cuidado, mas nunca será idêntica à da foto. É isso que faz dela uma peça só sua.</p></details><details><summary>Posso encomendar em outro tamanho ou com outras cores?</summary><p>Pode conversar comigo pelo WhatsApp e me contar o que você imagina. Eu digo o que é possível fazer e mando o orçamento.</p></details><details><summary>Quanto tempo demora?</summary><p>Peças sob encomenda ficam prontas em cerca de 20 a 30 dias, dependendo do tamanho e da quantidade. O prazo exato vai no orçamento.</p></details><details><summary>Como é o pagamento?</summary><p>Pelo Pix. Nas encomendas, metade é paga para começar e a outra metade na entrega. Tudo combinado no orçamento.</p></details><details><summary>Vocês entregam?</summary><p>Sim. Em São Paulo, a entrega é feita por motoboy. Para outras cidades, a gente combina. O frete é cobrado à parte e informado antes.</p></details><details><summary>Atendem arquitetos, decoradores e lojas?</summary><p>Sim. É só me chamar no WhatsApp contando sobre o projeto.</p></details></div>
+</div></section>
+
+</main>
+<footer class="rodape"><div class="wrap">
+  <div><a class="marca" style="color:#f7f6f3" href="index.html" aria-label="Sandra Grazioli Arte Cerâmica, página inicial"><svg width="44" height="44" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect x="3" y="3" width="94" height="94" rx="3" fill="none" stroke="#f7f6f3" stroke-width="4"/><rect x="12" y="12" width="76" height="76" rx="2" fill="#6b5440"/><path d="M12 62 C28 50 40 76 57 59 S82 36 88 41 V88 H12 Z" fill="#f1ece3"/></svg><span class="marca-txt"><span class="marca-nome">Sandra Grazioli</span><span class="marca-desc">Arte Cerâmica</span></span></a>
+    <p style="margin:18px 0 0;max-width:24em">Peças únicas em cerâmica, feitas à mão em São Paulo.</p></div>
+  <div><h3>Contato</h3><ul><li>WhatsApp: <span class="falta">a preencher</span></li><li><a href="mailto:ateliersandragrazioli@gmail.com">ateliersandragrazioli@gmail.com</a></li>
+    <li><a href="https://instagram.com/ateliersandragrazioli" target="_blank" rel="noopener">Instagram @ateliersandragrazioli</a></li></ul></div>
+  <div><h3>Informações</h3><ul><li><a href="privacidade.html">Privacidade e cookies</a></li><li><a href="encomendar.html">Como encomendar</a></li><li><a href="encomendar.html#perguntas">Perguntas frequentes</a></li></ul></div>
+  <p class="final">Sandra Grazioli Arte Cerâmica · © 2026</p>
+</div></footer>
+<script>
+  const b = document.querySelector('.menu-btn'), m = document.getElementById('menu');
+  b.addEventListener('click', () => { const a = m.classList.toggle('aberto'); b.setAttribute('aria-expanded', a); });
+  m.addEventListener('click', e => { if (e.target.tagName === 'A') { m.classList.remove('aberto'); b.setAttribute('aria-expanded', false); } });
+</script>
+</body>
+</html>
