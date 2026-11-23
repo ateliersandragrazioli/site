@@ -204,7 +204,7 @@ JS = """<script>
 
 
 def pagina(titulo, descricao, corpo, atual=""):
-    nav = [("Obras", "obras"), ("Sobre", "sobre"), ("Como encomendar", "encomendar"), ("Onde encontrar", "lojas"), ("Contato", "contato")]
+    nav = [("Painéis", "paineis"), ("Peças", "pecas"), ("Sobre", "sobre"), ("Como encomendar", "encomendar"), ("Onde encontrar", "lojas"), ("Contato", "contato")]
     menu = "".join(f'<a href="{i}.html"{" aria-current=page" if i == atual else ""}>{t}</a>' for t, i in nav)
     email = (f'<a href="mailto:{DADOS["email"]}">{DADOS["email"]}</a>' if DADOS["email"] else f'E-mail: {FALTA}')
     whats = (f'<a href="{link_whats()}" target="_blank" rel="noopener">WhatsApp {fone_bonito()}</a>' if DADOS["whatsapp"] else f'WhatsApp: {FALTA}')
@@ -356,7 +356,7 @@ def index():
     <p class="olho">Ateliê de cerâmica · São Paulo</p>
     <h1>A arte do fogo, que tudo transforma.</h1>
     <p class="sub">Painéis de parede em cerâmica e peças únicas para decoração, feitos à mão por Sandra Grazioli. Do barro ao forno, cada um no seu tempo.</p>
-    <div class="acoes"><a class="btn" href="obras.html">Ver os painéis</a><a class="btn-linha" href="obras.html#disponiveis">Peças para decoração</a></div>
+    <div class="acoes"><a class="btn" href="paineis.html">Ver os painéis</a><a class="btn-linha" href="pecas.html">Peças para decoração</a></div>
   </div>
   <figure>{img("essencias-azul", "Conjunto de nove placas da série Essências, em azuis, verde e branco, com molduras de madeira", ' loading="eager" fetchpriority="high"').replace(' loading="lazy"', '')}</figure>
 </div></section>
@@ -366,32 +366,47 @@ def index():
                   corpo, atual="")
 
 
-def obras():
+PAINEIS_GAL = {"paineis", "coluna-terra", "acrilico-trio"}
+
+
+def galeria_html(filtro):
+    return "".join(f'<figure>{img(f, alt)}<figcaption>{leg}</figcaption></figure>' for f, alt, leg in GALERIA if filtro(f))
+
+
+def paineis():
     series = "".join(f'<article class="serie">{img(f, alt)}<h3>{t}</h3><p>{d}</p></article>' for f, t, d, alt in SERIES)
-    galeria = "".join(f'<figure>{img(f, alt)}<figcaption>{leg}</figcaption></figure>' for f, alt, leg in GALERIA)
-    disponiveis = "".join(
-        f'<article class="peca">{img(f, alt, sizes="(max-width: 600px) 50vw, 25vw")}<h3>{t}</h3><p>{m}</p>'
-        f'{botao_whats("Quero saber mais", classe="link-whats", msg=f"Olá, Sandra! Vi no site a peça {t} ({m}) e gostaria de saber mais.")}</article>'
-        for f, t, m, alt in DISPONIVEIS)
     corpo = f"""
 <section class="bloco branco"><div class="wrap">
   {cab_pagina("Painéis de parede", "Cerâmica que vira parede", "O foco do meu trabalho. Peças de parede individuais, em três séries, que sozinhas já são um quadro e, juntas, compõem um painel maior. Sob encomenda, pensado com você ou com o seu arquiteto para o seu espaço.")}
   <p style="margin:-18px 0 40px">{botao_whats("Conversar sobre um painel", msg="Olá, Sandra! Gostaria de conversar sobre um painel de parede.")}</p>
   <div class="series">{series}</div>
 </div></section>
-<section class="bloco linho" id="disponiveis" aria-labelledby="t-disp"><div class="wrap">
-  <div class="cab-bloco"><p class="olho">Pronta entrega</p><h2 id="t-disp">Peças únicas para decoração</h2>
-    <p>Entre um painel e outro, modelo pecinhas na hora, com o que o barro pede. Ficam lindas numa mesinha de canto, na mesa de centro, no lavabo ou no criado-mudo, e são um presente especial. Cada uma é única: o que saiu do forno não se repete. Para saber o valor ou reservar, é só me chamar.</p></div>
-  <div class="disp">{disponiveis}</div>
-</div></section>
 <section class="bloco" aria-labelledby="t-gal"><div class="wrap">
-  <div class="cab-bloco"><p class="olho">Do ateliê</p><h2 id="t-gal">Painéis de parede e peças de decoração</h2></div>
-  <div class="galeria">{galeria}</div>
-  <p class="aviso-peca italico">Cada peça é única: o esmalte reage de um jeito em cada queima, por isso nenhuma sai igual à outra.</p>
-  <p style="margin-top:34px">{botao_whats("Perguntar sobre uma peça")}</p>
+  <div class="cab-bloco"><p class="olho">Do ateliê</p><h2 id="t-gal">Painéis montados</h2>
+    <p>Cada painel é pensado para o espaço: o tamanho, as cores e a composição mudam de projeto para projeto.</p></div>
+  <div class="galeria">{galeria_html(lambda f: f in PAINEIS_GAL)}</div>
+  <p class="aviso-peca italico">Cada placa é única: o esmalte reage de um jeito em cada queima, por isso nenhuma sai igual à outra.</p>
 </div></section>
 """
-    return pagina("Obras · Sandra Grazioli", "As séries Essências, Texturas e Acrílico, painéis de parede e peças únicas para decoração de Sandra Grazioli.", corpo, atual="obras")
+    return pagina("Painéis de parede · Sandra Grazioli", "Painéis de parede em cerâmica de Sandra Grazioli, séries Essências, Texturas e Acrílico, sob encomenda para casas e projetos de arquitetura.", corpo, atual="paineis")
+
+
+def pecas():
+    disponiveis = "".join(
+        f'<article class="peca">{img(f, alt, sizes="(max-width: 600px) 50vw, 25vw")}<h3>{t}</h3><p>{m}</p>'
+        f'{botao_whats("Quero saber mais", classe="link-whats", msg=f"Olá, Sandra! Vi no site a peça {t} ({m}) e gostaria de saber mais.")}</article>'
+        for f, t, m, alt in DISPONIVEIS)
+    corpo = f"""
+<section class="bloco linho" id="disponiveis"><div class="wrap">
+  {cab_pagina("Peças", "Peças únicas para decoração", "Entre um painel e outro, modelo pecinhas na hora, com o que o barro pede. Ficam lindas numa mesinha de canto, na mesa de centro, no lavabo ou no criado-mudo, e são um presente especial. Cada uma é única: o que saiu do forno não se repete. Para saber o valor ou reservar, é só me chamar.")}
+  <div class="disp">{disponiveis}</div>
+</div></section>
+<section class="bloco" aria-labelledby="t-outras"><div class="wrap">
+  <div class="cab-bloco"><p class="olho">Do ateliê</p><h2 id="t-outras">Outras peças que já saíram do forno</h2></div>
+  <div class="galeria">{galeria_html(lambda f: f not in PAINEIS_GAL)}</div>
+</div></section>
+"""
+    return pagina("Peças para decoração · Sandra Grazioli", "Peças únicas de cerâmica para decoração e presente, feitas à mão por Sandra Grazioli. Pronta entrega, com medidas.", corpo, atual="pecas")
 
 
 def sobre():
@@ -485,8 +500,8 @@ def erro404():
   <div style="display:grid;justify-items:center;margin-bottom:28px">{simbolo(84)}</div>
   <p class="olho">Página não encontrada</p>
   <h1 class="h-pag" style="margin-bottom:18px">Essa página não existe</h1>
-  <p style="color:var(--apoio)">O endereço pode ter mudado. Volte para o início ou veja as obras.</p>
-  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px"><a class="btn" href="/">Ir para o início</a><a class="btn-linha" href="/obras.html">Ver as obras</a></div>
+  <p style="color:var(--apoio)">O endereço pode ter mudado. Volte para o início ou veja os painéis e as peças.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px"><a class="btn" href="/">Ir para o início</a><a class="btn-linha" href="/paineis.html">Ver os painéis</a></div>
 </div></section>
 """
     return pagina("Página não encontrada · Sandra Grazioli", "Página não encontrada.", corpo).replace('href="', 'href="/').replace('href="/http', 'href="http').replace('href="/mailto', 'href="mailto').replace('href="/#', 'href="#').replace('src="fotos', 'src="/fotos').replace("url(fontes", "url(/fontes").replace('href="//', 'href="/')
@@ -533,12 +548,12 @@ def privacidade():
     return pagina("Privacidade e cookies · Sandra Grazioli", "Como o site de Sandra Grazioli Arte Cerâmica trata os seus dados.", corpo, atual="privacidade")
 
 
-for nome, fn in [("index", index), ("obras", obras), ("sobre", sobre), ("encomendar", encomendar), ("lojas", lojas), ("contato", contato)]:
+for nome, fn in [("index", index), ("paineis", paineis), ("pecas", pecas), ("sobre", sobre), ("encomendar", encomendar), ("lojas", lojas), ("contato", contato)]:
     (AQUI / f"{nome}.html").write_text(fn(), encoding="utf-8")
 (AQUI / "privacidade.html").write_text(privacidade(), encoding="utf-8")
 (AQUI / "404.html").write_text(erro404(), encoding="utf-8")
 SITE = "https://sandragrazioli.com.br"
-PAGS = ["", "obras.html", "sobre.html", "encomendar.html", "lojas.html", "contato.html", "privacidade.html"]
+PAGS = ["", "paineis.html", "pecas.html", "sobre.html", "encomendar.html", "lojas.html", "contato.html", "privacidade.html"]
 (AQUI / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 (AQUI / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     + "".join(f"  <url><loc>{SITE}/{p}</loc></url>\n" for p in PAGS) + "</urlset>\n", encoding="utf-8")
