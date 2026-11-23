@@ -88,6 +88,8 @@ main { min-height: 50vh; }
 .peca p { margin: 0 0 8px; color: var(--apoio); font-size: 16px; }
 .link-whats { color: var(--azul); font-size: 16px; text-underline-offset: 4px; }
 @media (max-width: 520px) { .disp { grid-template-columns: 1fr 1fr; gap: 18px; } .peca h3 { font-size: 17px; } }
+.loja { display: flex; gap: 22px; align-items: center; }
+.logo-loja { width: 84px; height: 84px; border-radius: 50%; flex: none; }
 /* Séries */
 section.bloco { padding: 90px 0; }
 .bloco.linho { background: var(--linho); }
@@ -123,7 +125,7 @@ section.bloco { padding: 90px 0; }
 @media (max-width: 520px) { .passos { grid-template-columns: 1fr; } }
 
 /* Lojas */
-.lojas { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; list-style: none; padding: 0; margin: 0; }
+.lojas { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: 20px; list-style: none; padding: 0; margin: 0; }
 .lojas li { background: var(--papel); border: 1px solid var(--fio); padding: 24px; }
 .lojas b { font-family: "Marcellus", serif; font-weight: 400; font-size: 21px; letter-spacing: .04em; display: block; }
 .lojas span { color: var(--apoio); font-size: 16px; }

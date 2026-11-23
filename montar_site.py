@@ -120,6 +120,8 @@ main { min-height: 50vh; }
 .peca p { margin: 0 0 8px; color: var(--apoio); font-size: 16px; }
 .link-whats { color: var(--azul); font-size: 16px; text-underline-offset: 4px; }
 @media (max-width: 520px) { .disp { grid-template-columns: 1fr 1fr; gap: 18px; } .peca h3 { font-size: 17px; } }
+.loja { display: flex; gap: 22px; align-items: center; }
+.logo-loja { width: 84px; height: 84px; border-radius: 50%; flex: none; }
 /* Séries */
 section.bloco { padding: 90px 0; }
 .bloco.linho { background: var(--linho); }
@@ -155,7 +157,7 @@ section.bloco { padding: 90px 0; }
 @media (max-width: 520px) { .passos { grid-template-columns: 1fr; } }
 
 /* Lojas */
-.lojas { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; list-style: none; padding: 0; margin: 0; }
+.lojas { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: 20px; list-style: none; padding: 0; margin: 0; }
 .lojas li { background: var(--papel); border: 1px solid var(--fio); padding: 24px; }
 .lojas b { font-family: "Marcellus", serif; font-weight: 400; font-size: 21px; letter-spacing: .04em; display: block; }
 .lojas span { color: var(--apoio); font-size: 16px; }
@@ -431,9 +433,15 @@ def encomendar():
     return pagina("Como encomendar · Sandra Grazioli", "Como encomendar uma peça de Sandra Grazioli: orçamento pelo WhatsApp, pagamento e entrega combinados com você.", corpo, atual="encomendar")
 
 
+def logo_loja(nome):
+    # Logo da loja parceira, se houver arquivo em fotos/logo-<nome>.png
+    arq = "logo-" + nome.lower().replace(" ", "-") + ".png"
+    return f'<img class="logo-loja" src="fotos/{arq}" alt="Logo da {nome}" width="84" height="84">' if (AQUI / "fotos" / arq).exists() else ""
+
+
 def lojas():
     itens = "".join(
-        f'<li><b>{n}</b>{f"<span>{c}</span><br>" if c else ("" if l else f"<span>{FALTA}</span>")}{f"<a href={l} target=_blank rel=noopener>Ver a loja no Instagram</a>" if l else ""}</li>'
+        f'<li class="loja">{logo_loja(n)}<div><b>{n}</b>{f"<span>{c}</span><br>" if c else ("" if l else f"<span>{FALTA}</span>")}{f"<a href={l} target=_blank rel=noopener>Ver a loja no Instagram</a>" if l else ""}</div></li>'
         for n, c, l in DADOS["lojas"])
     corpo = f"""
 <section class="bloco"><div class="wrap">
