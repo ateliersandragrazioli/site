@@ -373,6 +373,17 @@ def galeria_html(filtro):
     return "".join(f'<figure>{img(f, alt)}<figcaption>{leg}</figcaption></figure>' for f, alt, leg in GALERIA if filtro(f))
 
 
+def cartoes(lista):
+    return "".join(
+        f'<article class="peca">{img(f, alt, sizes="(max-width: 600px) 50vw, 25vw")}<h3>{t}</h3><p>{m}</p>'
+        f'{botao_whats("Quero saber mais", classe="link-whats", msg=f"Olá, Sandra! Vi no site a peça {t} ({m}) e gostaria de saber mais.")}</article>'
+        for f, t, m, alt in lista)
+
+
+def de_parede(t):
+    return t.startswith("Série")
+
+
 def paineis():
     series = "".join(f'<article class="serie">{img(f, alt)}<h3>{t}</h3><p>{d}</p></article>' for f, t, d, alt in SERIES)
     corpo = f"""
@@ -380,6 +391,11 @@ def paineis():
   {cab_pagina("Painéis de parede", "Cerâmica que vira parede", "O foco do meu trabalho. Peças de parede individuais, em três séries, que sozinhas já são um quadro e, juntas, compõem um painel maior. Sob encomenda, pensado com você ou com o seu arquiteto para o seu espaço.")}
   <p style="margin:-18px 0 40px">{botao_whats("Conversar sobre um painel", msg="Olá, Sandra! Gostaria de conversar sobre um painel de parede.")}</p>
   <div class="series">{series}</div>
+</div></section>
+<section class="bloco linho" id="parede-disponiveis" aria-labelledby="t-pd"><div class="wrap">
+  <div class="cab-bloco"><p class="olho">Pronta entrega</p><h2 id="t-pd">Peças de parede disponíveis</h2>
+    <p>Peças prontas para a parede, que também podem começar um painel. Cada uma é única. Para saber o valor ou reservar, é só me chamar.</p></div>
+  <div class="disp">{cartoes([d for d in DISPONIVEIS if de_parede(d[1])])}</div>
 </div></section>
 <section class="bloco" aria-labelledby="t-gal"><div class="wrap">
   <div class="cab-bloco"><p class="olho">Do ateliê</p><h2 id="t-gal">Painéis montados</h2>
@@ -392,10 +408,7 @@ def paineis():
 
 
 def pecas():
-    disponiveis = "".join(
-        f'<article class="peca">{img(f, alt, sizes="(max-width: 600px) 50vw, 25vw")}<h3>{t}</h3><p>{m}</p>'
-        f'{botao_whats("Quero saber mais", classe="link-whats", msg=f"Olá, Sandra! Vi no site a peça {t} ({m}) e gostaria de saber mais.")}</article>'
-        for f, t, m, alt in DISPONIVEIS)
+    disponiveis = cartoes([d for d in DISPONIVEIS if not de_parede(d[1])])
     corpo = f"""
 <section class="bloco linho" id="disponiveis"><div class="wrap">
   {cab_pagina("Peças", "Peças únicas para decoração", "Entre um painel e outro, modelo pecinhas na hora, com o que o barro pede. Ficam lindas numa mesinha de canto, na mesa de centro, no lavabo ou no criado-mudo, e são um presente especial. Cada uma é única: o que saiu do forno não se repete. Para saber o valor ou reservar, é só me chamar.")}
