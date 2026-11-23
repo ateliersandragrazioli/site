@@ -295,6 +295,8 @@ DISPONIVEIS = [
      "Peça branca alongada, de bordas onduladas e levantadas nas pontas"),
     ("peca-cumbuca", "Cumbuca de barro e esmalte branco", "14 cm",
      "Cumbuca arredondada de barro cinza com borda irregular e interior em esmalte branco pontilhado"),
+    ("peca-tigela-22", "Tigela esmaltada com relevo", "22 cm",
+     "Tigela redonda de borda ondulada, com esmalte em tons de areia, lilás e mel por dentro e relevo escuro por fora"),
 ]
 
 PERGUNTAS = [
