@@ -275,6 +275,15 @@ SERIES = [
 ]
 
 GALERIA = [
+    ("ig-painel-azul-mao", "Painel de doze placas em azul, branco e marrom, em moldura de madeira, segurado pela mão da Sandra", "Painel em azul e branco"),
+    ("ig-painel-arcos", "Painel de placas com arcos escuros e mel sobre fundo branco, em moldura de madeira com fundo de linho", "Painel com arcos"),
+    ("ig-painel-terra", "Painel de placas em tons de terra, verde e branco com textura, montado sobre um tapete", "Painel em tons de terra"),
+    ("ig-tres-quadros", "Três quadros verticais de cerâmica em azul, mel e cinza lado a lado na parede", "Trio de quadros"),
+    ("ig-painel-folha", "Painel de placas brancas com uma forma escura de folha, em moldura de madeira com fundo de linho", "Painel com folha"),
+    ("ig-painel-coluna", "Coluna de placas em branco, verde, cinza e marrom, sobre um tapete", "Painel em coluna"),
+    ("ig-acrilico-ovais", "Duas peças ovais esmaltadas em azul e verde, cada uma em sua caixa de acrílico", "Série Acrílico"),
+    ("ig-textura-perto", "Detalhe de perto das placas da série Texturas, com relevo de escamas", "Série Texturas, de perto"),
+    ("ig-forno", "Placas escuras com centro claro dentro do forno, antes da queima", "No forno, antes da queima"),
     ("paineis", "Duas colunas de placas, uma em tons de barro e outra em azul e branco", "Painéis de parede"),
     ("tigela-ambar", "Peça decorativa de bordas onduladas, cor de mel por fora, com esmalte azul e verde no fundo", "Peça orgânica, esmalte de mel e azul"),
     ("tigela-branca", "Peça branca de bordas ondulantes, como uma flor aberta, sobre uma mesa de madeira", "Peça branca, forma orgânica"),
@@ -366,7 +375,7 @@ def index():
                   corpo, atual="")
 
 
-PAINEIS_GAL = {"paineis", "coluna-terra", "acrilico-trio"}
+PAINEIS_GAL = {"paineis", "coluna-terra", "acrilico-trio"} | {g[0] for g in GALERIA if g[0].startswith("ig-")}
 
 
 def galeria_html(filtro):
