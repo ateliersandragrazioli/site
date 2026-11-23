@@ -291,6 +291,8 @@ DISPONIVEIS = [
      "Tigela oval branca com bordas escuras e centro em verde, azul e lilás com esmalte craquelado"),
     ("peca-branca", "Peça branca orgânica", "25 × 22 cm",
      "Peça branca de bordas onduladas, como uma flor aberta"),
+    ("peca-branca-2", "Peça branca orgânica", "25 × 11 cm",
+     "Peça branca alongada, de bordas onduladas e levantadas nas pontas"),
 ]
 
 PERGUNTAS = [
