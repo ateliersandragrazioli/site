@@ -320,6 +320,8 @@ DISPONIVEIS = [
      "Prato fundo de borda irregular em esmalte claro acinzentado, com centro em azul e verde craquelado"),
     ("peca-tigela-20", "Tigela de barro com esmalte furta-cor", "20 cm",
      "Tigela de barro cinza de borda ondulada, com esmalte por dentro em tons de lilás, azul, mel e verde"),
+    ("peca-travessa-escura", "Travessa orgânica esmaltada", "35 × 22 cm",
+     "Travessa grande de forma orgânica, em esmalte marrom-escuro brilhante com pontinhos dourados"),
 ]
 
 PERGUNTAS = [
