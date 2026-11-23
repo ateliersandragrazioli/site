@@ -287,22 +287,22 @@ def img(nome, alt, extra="", sizes="(max-width: 860px) 100vw, 45vw"):
 
 
 SERIES = [
-    ("coluna-azul", "Essências", "Placas de cerâmica esmaltadas em várias cores, cada uma na sua moldura de madeira. Sozinhas ou em conjunto, viram um painel na parede.",
+    ("coluna-azul", "Essências", "Placas esmaltadas em várias cores, cada uma na sua moldura de madeira, em 15 × 15 ou 18 × 18 cm. Sozinhas já são um quadro; juntas, montam um painel. Nove placas de 18 cm, por exemplo, formam um painel de 62 × 62 cm.",
      "Coluna de placas da série Essências, em azul, branco e preto, cada uma em moldura de madeira"),
-    ("texturas", "Texturas", "Cerâmica com relevo e esmalte, em moldura de madeira. A luz bate diferente ao longo do dia e a peça muda junto.",
+    ("texturas", "Texturas", "Meu projeto mais recente: cerâmica com relevo feito à mão e esmalte, em moldura de madeira. A luz bate diferente ao longo do dia, e a peça muda junto.",
      "Placas da série Texturas, escuras, com relevo de pontinhos e um brilho claro no centro"),
-    ("acrilico", "Acrílico", "A peça de cerâmica dentro de uma caixa de acrílico transparente: parece flutuar na parede, como numa galeria.",
+    ("acrilico", "Acrílico", "Pequenas esculturas de cerâmica dentro de caixas de acrílico transparente. A peça parece flutuar, como numa galeria, e pode ir para a parede ou para um móvel.",
      "Peça de cerâmica verde com um traço cor de barro, dentro de uma caixa de acrílico transparente"),
 ]
 
 GALERIA = [
-    ("ig-painel-azul-mao", "Painel de doze placas em azul, branco e marrom, em moldura de madeira, segurado pela mão da Sandra", "Painel em azul e branco"),
-    ("ig-painel-arcos", "Painel de placas com arcos escuros e mel sobre fundo branco, em moldura de madeira com fundo de linho", "Painel com arcos"),
-    ("ig-painel-terra", "Painel de placas em tons de terra, verde e branco com textura, montado sobre um tapete", "Painel em tons de terra"),
+    ("ig-painel-azul-mao", "Painel de doze placas em azul, branco e marrom, em moldura de madeira, segurado pela mão da Sandra", "Painel em azul e branco · 41 × 31 cm"),
+    ("ig-painel-arcos", "Painel de placas com arcos escuros e mel sobre fundo branco, em moldura de madeira com fundo de linho", "Painel com arcos, da série nova"),
+    ("ig-painel-terra", "Painel de placas em tons de terra, verde e branco com textura, montado sobre um tapete", "Painel em tons de terra · 36 × 27 cm"),
     ("ig-tres-quadros", "Três quadros verticais de cerâmica em azul, mel e cinza lado a lado na parede", "Trio de quadros"),
-    ("ig-painel-folha", "Painel de placas brancas com uma forma escura de folha, em moldura de madeira com fundo de linho", "Painel com folha"),
-    ("ig-painel-coluna", "Coluna de placas em branco, verde, cinza e marrom, sobre um tapete", "Painel em coluna"),
-    ("ig-acrilico-ovais", "Duas peças ovais esmaltadas em azul e verde, cada uma em sua caixa de acrílico", "Série Acrílico"),
+    ("ig-painel-folha", "Painel de placas brancas com uma forma escura de folha, em moldura de madeira com fundo de linho", "Painel com folha · 42 × 42 cm"),
+    ("ig-painel-coluna", "Coluna de placas em branco, verde, cinza e marrom, sobre um tapete", "Painel em coluna · 78 × 34 cm"),
+    ("ig-acrilico-ovais", "Duas peças ovais esmaltadas em azul e verde, cada uma em sua caixa de acrílico", "Série Acrílico · composição “Sutil”"),
     ("ig-textura-perto", "Detalhe de perto das placas da série Texturas, com relevo de escamas", "Série Texturas, de perto"),
     ("ig-forno", "Placas escuras com centro claro dentro do forno, antes da queima", "No forno, antes da queima"),
     ("paineis", "Duas colunas de placas, uma em tons de barro e outra em azul e branco", "Painéis de parede"),
@@ -434,7 +434,7 @@ def paineis():
     series = "".join(f'<article class="serie">{img(f, alt)}<h3>{t}</h3><p>{d}</p></article>' for f, t, d, alt in SERIES)
     corpo = f"""
 <section class="bloco branco"><div class="wrap">
-  {cab_pagina("Painéis de parede", "Cerâmica que vira parede", "O foco do meu trabalho. Peças de parede individuais, em três séries, que sozinhas já são um quadro e, juntas, compõem um painel maior. Sob encomenda, pensado com você ou com o seu arquiteto para o seu espaço.")}
+  {cab_pagina("Painéis de parede", "Cerâmica que vira parede", "O foco do meu trabalho. As peças de parede são individuais, de 15 × 15 ou 18 × 18 cm, e permitem montar a composição do jeito que você preferir: uma coluna, um quadrado, uma parede inteira. Sob encomenda, pensado com você ou com o seu arquiteto para o seu espaço.")}
   <p style="margin:-18px 0 40px">{botao_whats("Conversar sobre um painel", msg="Olá, Sandra! Gostaria de conversar sobre um painel de parede.")}</p>
   <div class="series">{series}</div>
 </div></section>
