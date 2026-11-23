@@ -293,6 +293,8 @@ DISPONIVEIS = [
      "Peça branca de bordas onduladas, como uma flor aberta"),
     ("peca-branca-2", "Peça branca orgânica", "25 × 11 cm",
      "Peça branca alongada, de bordas onduladas e levantadas nas pontas"),
+    ("peca-cumbuca", "Cumbuca de barro e esmalte branco", "14 cm",
+     "Cumbuca arredondada de barro cinza com borda irregular e interior em esmalte branco pontilhado"),
 ]
 
 PERGUNTAS = [
