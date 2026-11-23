@@ -307,6 +307,8 @@ DISPONIVEIS = [
      "Travessinha oval com borda metálica escura e centro em esmalte azul cobalto"),
     ("peca-turquesa", "Peça orgânica turquesa", "15 × 10,5 cm",
      "Pequena peça de bordas dobradas em esmalte verde-água brilhante, com veio azul e prata no fundo"),
+    ("peca-verde-escura", "Peça orgânica verde-escura", "19 × 14 cm",
+     "Peça de bordas onduladas em esmalte verde-escuro brilhante, com veios azul-turquesa e cobre no fundo"),
 ]
 
 PERGUNTAS = [
