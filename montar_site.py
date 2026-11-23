@@ -299,6 +299,8 @@ DISPONIVEIS = [
      "Tigela redonda de borda ondulada, com esmalte em tons de areia, lilás e mel por dentro e relevo escuro por fora"),
     ("peca-travessa", "Travessa oval esmaltada", "33 × 20 cm",
      "Travessa oval de barro escuro com esmalte em azul, âmbar e um centro verde brilhante"),
+    ("peca-travessa-textura", "Travessa com textura", "25 × 14 cm",
+     "Travessa de borda irregular, escura por fora e com textura em relevo dourada e marrom por dentro"),
 ]
 
 PERGUNTAS = [
