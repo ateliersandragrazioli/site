@@ -301,6 +301,8 @@ DISPONIVEIS = [
      "Travessa oval de barro escuro com esmalte em azul, âmbar e um centro verde brilhante"),
     ("peca-travessa-textura", "Travessa com textura", "25 × 14 cm",
      "Travessa de borda irregular, escura por fora e com textura em relevo dourada e marrom por dentro"),
+    ("peca-prato-verde", "Prato fundo verde-oliva", "17 cm",
+     "Prato fundo de borda ondulada em esmalte verde-oliva, com centro escuro brilhante"),
 ]
 
 PERGUNTAS = [
