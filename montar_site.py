@@ -322,9 +322,9 @@ PERGUNTAS = [
     ("Posso encomendar em outro tamanho ou com outras cores?",
      "Pode conversar comigo pelo WhatsApp e me contar o que você imagina. Eu digo o que é possível fazer e mando o orçamento."),
     ("Quanto tempo demora?",
-     "Peças sob encomenda ficam prontas em cerca de 20 a 30 dias, dependendo do tamanho e da quantidade. O prazo exato vai no orçamento."),
+     "Depende da peça, do tamanho e da quantidade. O prazo vai combinado no orçamento."),
     ("Como é o pagamento?",
-     "Pelo Pix. Nas encomendas, metade é paga para começar e a outra metade na entrega. Tudo combinado no orçamento."),
+     "A forma de pagamento é combinada com você no orçamento."),
     ("Vocês entregam?",
      "Sim. Em São Paulo, a entrega é feita por motoboy. Para outras cidades, a gente combina. O frete é cobrado à parte e informado antes."),
     ("Atendem arquitetos, decoradores e lojas?",
@@ -413,8 +413,8 @@ def encomendar():
     passos = [
         ("Me chame no WhatsApp", "Conte qual peça chamou sua atenção, ou o que você imagina para o seu espaço."),
         ("Receba o orçamento", "Eu mando as medidas, o valor, o prazo e a entrega, tudo por escrito."),
-        ("Reserve com o Pix", "Metade para começar. Aí a peça entra no ateliê: modelagem, esmalte e queima."),
-        ("Receba em casa", "Em cerca de 20 a 30 dias. A outra metade é paga na entrega."),
+        ("Pagamento a combinar", "A forma de pagamento é combinada com você, direto comigo, no orçamento."),
+        ("Receba em casa", "Combinamos juntos a entrega, e a sua peça chega até você com todo o cuidado."),
     ]
     passos_html = "".join(f'<li><h3>{t}</h3><p>{d}</p></li>' for t, d in passos)
     corpo = f"""
@@ -496,7 +496,7 @@ def privacidade():
   <ul>
     <li><b>Netlify</b>: hospedagem do site.</li>
     <li><b>Meta (WhatsApp e Instagram)</b>: quando você escolhe falar comigo por lá.</li>
-    <li><b>Banco ou instituição do Pix</b>: quando você faz um pagamento.</li>
+    <li><b>Banco ou meio de pagamento</b>: quando você faz um pagamento.</li>
     <li><b>Entregador ou transportadora</b>: nome, endereço e telefone, só para a entrega.</li>
   </ul>
   <p>Seus dados não são vendidos nem usados para propaganda.</p>
