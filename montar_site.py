@@ -355,8 +355,8 @@ def index():
   <div>
     <p class="olho">Ateliê de cerâmica · São Paulo</p>
     <h1>A arte do fogo, que tudo transforma.</h1>
-    <p class="sub">Peças únicas de cerâmica para decorar a parede e a casa, feitas à mão por Sandra Grazioli. Do barro ao forno, cada uma no seu tempo.</p>
-    <div class="acoes"><a class="btn" href="obras.html">Ver as obras</a>{botao_whats(classe="btn-linha")}</div>
+    <p class="sub">Painéis de parede em cerâmica e peças únicas para decoração, feitos à mão por Sandra Grazioli. Do barro ao forno, cada um no seu tempo.</p>
+    <div class="acoes"><a class="btn" href="obras.html">Ver os painéis</a><a class="btn-linha" href="obras.html#disponiveis">Peças para decoração</a></div>
   </div>
   <figure>{img("essencias-azul", "Conjunto de nove placas da série Essências, em azuis, verde e branco, com molduras de madeira", ' loading="eager" fetchpriority="high"').replace(' loading="lazy"', '')}</figure>
 </div></section>
@@ -375,12 +375,13 @@ def obras():
         for f, t, m, alt in DISPONIVEIS)
     corpo = f"""
 <section class="bloco branco"><div class="wrap">
-  {cab_pagina("Obras", "Três jeitos de levar a cerâmica para a parede", "Cada peça é feita uma a uma e é única. As peças de parede também podem compor um painel maior, sob encomenda.")}
+  {cab_pagina("Painéis de parede", "Cerâmica que vira parede", "O foco do meu trabalho. Peças de parede individuais, em três séries, que sozinhas já são um quadro e, juntas, compõem um painel maior. Sob encomenda, pensado com você ou com o seu arquiteto para o seu espaço.")}
+  <p style="margin:-18px 0 40px">{botao_whats("Conversar sobre um painel", msg="Olá, Sandra! Gostaria de conversar sobre um painel de parede.")}</p>
   <div class="series">{series}</div>
 </div></section>
 <section class="bloco linho" id="disponiveis" aria-labelledby="t-disp"><div class="wrap">
   <div class="cab-bloco"><p class="olho">Pronta entrega</p><h2 id="t-disp">Peças únicas para decoração</h2>
-    <p>Para uma mesinha de canto, a mesa de centro, o lavabo ou o criado-mudo. Cada peça é única: o que saiu do forno não se repete. Para saber o valor ou reservar, é só me chamar.</p></div>
+    <p>Entre um painel e outro, modelo pecinhas na hora, com o que o barro pede. Ficam lindas numa mesinha de canto, na mesa de centro, no lavabo ou no criado-mudo, e são um presente especial. Cada uma é única: o que saiu do forno não se repete. Para saber o valor ou reservar, é só me chamar.</p></div>
   <div class="disp">{disponiveis}</div>
 </div></section>
 <section class="bloco" aria-labelledby="t-gal"><div class="wrap">
