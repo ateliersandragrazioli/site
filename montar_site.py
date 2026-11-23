@@ -305,6 +305,8 @@ DISPONIVEIS = [
      "Prato fundo de borda ondulada em esmalte verde-oliva, com centro escuro brilhante"),
     ("peca-travessinha-azul", "Travessinha azul cobalto", "16 × 11 cm",
      "Travessinha oval com borda metálica escura e centro em esmalte azul cobalto"),
+    ("peca-turquesa", "Peça orgânica turquesa", "15 × 10,5 cm",
+     "Pequena peça de bordas dobradas em esmalte verde-água brilhante, com veio azul e prata no fundo"),
 ]
 
 PERGUNTAS = [
