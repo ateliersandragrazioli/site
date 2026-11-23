@@ -109,6 +109,12 @@ main { min-height: 50vh; }
 .atelie video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: var(--pedra); }
 @media (max-width: 760px) { .atelie { grid-template-columns: 1fr; gap: 28px; } .atelie video { max-width: 380px; margin: 0 auto; } }
 @media (prefers-reduced-motion: reduce) { .atelie video { animation: none; } }
+.disp { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 28px; }
+.peca img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; background: var(--pedra); }
+.peca h3 { font-size: 20px; margin: 16px 0 2px; }
+.peca p { margin: 0 0 8px; color: var(--apoio); font-size: 16px; }
+.link-whats { color: var(--azul); font-size: 16px; text-underline-offset: 4px; }
+@media (max-width: 520px) { .disp { grid-template-columns: 1fr 1fr; gap: 18px; } .peca h3 { font-size: 17px; } }
 /* Séries */
 section.bloco { padding: 90px 0; }
 .bloco.linho { background: var(--linho); }
@@ -271,6 +277,20 @@ GALERIA = [
     ("tigela-grande", "Tigela grande de cerâmica clara, com bordas irregulares e pinceladas azuis", "Tigela grande"),
 ]
 
+# Peças disponíveis (fotos tratadas a partir do que a Sandra mandou no WhatsApp). (foto, título, medida, alt)
+DISPONIVEIS = [
+    ("peca-acrilico-noite", "Série Acrílico", "16 × 16 cm",
+     "Placa quadrada de cerâmica escura com relevo de escamas e um centro claro, dentro de caixa de acrílico"),
+    ("peca-acrilico-oval", "Série Acrílico", "20 × 29 cm",
+     "Peça oval de cerâmica cinza com esmalte em azul, verde, laranja e vermelho, dentro de caixa de acrílico"),
+    ("peca-acrilico-oval-2", "Série Acrílico", "26 × 29 cm",
+     "Peça oval de cerâmica cinza com esmalte em vermelho, laranja, lilás e verde, dentro de caixa de acrílico"),
+    ("peca-folha", "Tigela com folhas", "21 × 17 cm",
+     "Tigela branca de bordas curvas com desenho de folhas em tom bronze"),
+    ("peca-branca", "Peça branca orgânica", "25 × 22 cm",
+     "Peça branca de bordas onduladas, como uma flor aberta"),
+]
+
 PERGUNTAS = [
     ("A peça vai ficar igual à da foto?",
      "Cada peça é única. Os esmaltes reagem de um jeito diferente a cada queima, então a sua peça terá a mesma série, as mesmas cores e o mesmo cuidado, mas nunca será idêntica à da foto. É isso que faz dela uma peça só sua."),
@@ -312,10 +332,19 @@ def index():
 def obras():
     series = "".join(f'<article class="serie">{img(f, alt)}<h3>{t}</h3><p>{d}</p></article>' for f, t, d, alt in SERIES)
     galeria = "".join(f'<figure>{img(f, alt)}<figcaption>{leg}</figcaption></figure>' for f, alt, leg in GALERIA)
+    disponiveis = "".join(
+        f'<article class="peca">{img(f, alt, sizes="(max-width: 600px) 50vw, 25vw")}<h3>{t}</h3><p>{m}</p>'
+        f'{botao_whats("Quero saber mais", classe="link-whats", msg=f"Olá, Sandra! Vi no site a peça {t} ({m}) e gostaria de saber mais.")}</article>'
+        for f, t, m, alt in DISPONIVEIS)
     corpo = f"""
 <section class="bloco branco"><div class="wrap">
   {cab_pagina("Obras", "Três jeitos de levar a cerâmica para a parede", "Todas as peças são feitas uma a uma. Cores, tamanhos e combinações podem ser pensados junto com você.")}
   <div class="series">{series}</div>
+</div></section>
+<section class="bloco linho" id="disponiveis" aria-labelledby="t-disp"><div class="wrap">
+  <div class="cab-bloco"><p class="olho">Pronta entrega</p><h2 id="t-disp">Peças disponíveis</h2>
+    <p>Peças prontas, que podem ir para a sua casa agora. Para saber o valor ou reservar, é só me chamar.</p></div>
+  <div class="disp">{disponiveis}</div>
 </div></section>
 <section class="bloco" aria-labelledby="t-gal"><div class="wrap">
   <div class="cab-bloco"><p class="olho">Do ateliê</p><h2 id="t-gal">Painéis, tigelas e peças únicas</h2></div>

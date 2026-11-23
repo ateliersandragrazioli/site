@@ -82,6 +82,12 @@ main { min-height: 50vh; }
 .atelie video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: var(--pedra); }
 @media (max-width: 760px) { .atelie { grid-template-columns: 1fr; gap: 28px; } .atelie video { max-width: 380px; margin: 0 auto; } }
 @media (prefers-reduced-motion: reduce) { .atelie video { animation: none; } }
+.disp { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 28px; }
+.peca img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; background: var(--pedra); }
+.peca h3 { font-size: 20px; margin: 16px 0 2px; }
+.peca p { margin: 0 0 8px; color: var(--apoio); font-size: 16px; }
+.link-whats { color: var(--azul); font-size: 16px; text-underline-offset: 4px; }
+@media (max-width: 520px) { .disp { grid-template-columns: 1fr 1fr; gap: 18px; } .peca h3 { font-size: 17px; } }
 /* Séries */
 section.bloco { padding: 90px 0; }
 .bloco.linho { background: var(--linho); }
