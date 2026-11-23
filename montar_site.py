@@ -206,6 +206,11 @@ def pagina(titulo, descricao, corpo, atual=""):
 <meta property="og:description" content="{descricao}">
 <meta property="og:image" content="https://sandragrazioli.com.br/fotos/essencias-azul.jpg">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#f7f6f3">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fontes/marcellus.woff2" as="font" type="font/woff2" crossorigin>
 <style>{CSS}</style>
 </head>
@@ -233,8 +238,18 @@ def pagina(titulo, descricao, corpo, atual=""):
 """
 
 
-def img(nome, alt, extra=""):
-    return f'<img src="fotos/{nome}.jpg" alt="{alt}" loading="lazy" decoding="async"{extra}>'
+def largura(arq):
+    # Lê a largura real da foto (para o navegador escolher a versão certa).
+    import subprocess
+    out = subprocess.run(["sips", "-g", "pixelWidth", str(arq)], capture_output=True, text=True).stdout
+    return int(out.split()[-1])
+
+
+def img(nome, alt, extra="", sizes="(max-width: 860px) 100vw, 45vw"):
+    menor = AQUI / "fotos" / f"{nome}-800.jpg"
+    src = (f' srcset="fotos/{nome}-800.jpg {largura(menor)}w, fotos/{nome}.jpg {largura(AQUI / "fotos" / f"{nome}.jpg")}w" sizes="{sizes}"'
+           if menor.exists() else "")
+    return f'<img src="fotos/{nome}.jpg"{src} alt="{alt}" loading="lazy" decoding="async"{extra}>'
 
 
 SERIES = [
@@ -391,6 +406,19 @@ def contato():
     return pagina("Contato · Sandra Grazioli", "Fale com Sandra Grazioli pelo WhatsApp ou Instagram.", corpo, atual="contato")
 
 
+def erro404():
+    corpo = f"""
+<section class="bloco"><div class="wrap" style="text-align:center;max-width:640px">
+  <div style="display:grid;justify-items:center;margin-bottom:28px">{simbolo(84)}</div>
+  <p class="olho">Página não encontrada</p>
+  <h1 class="h-pag" style="margin-bottom:18px">Essa página não existe</h1>
+  <p style="color:var(--apoio)">O endereço pode ter mudado. Volte para o início ou veja as obras.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px"><a class="btn" href="/">Ir para o início</a><a class="btn-linha" href="/obras.html">Ver as obras</a></div>
+</div></section>
+"""
+    return pagina("Página não encontrada · Sandra Grazioli", "Página não encontrada.", corpo).replace('href="', 'href="/').replace('href="/http', 'href="http').replace('href="/mailto', 'href="mailto').replace('href="/#', 'href="#').replace('src="fotos', 'src="/fotos').replace("url(fontes", "url(/fontes").replace('href="//', 'href="/')
+
+
 def privacidade():
     email = DADOS["email"] or FALTA
     corpo = f"""
@@ -435,5 +463,11 @@ def privacidade():
 for nome, fn in [("index", index), ("obras", obras), ("sobre", sobre), ("encomendar", encomendar), ("lojas", lojas), ("contato", contato)]:
     (AQUI / f"{nome}.html").write_text(fn(), encoding="utf-8")
 (AQUI / "privacidade.html").write_text(privacidade(), encoding="utf-8")
+(AQUI / "404.html").write_text(erro404(), encoding="utf-8")
+SITE = "https://sandragrazioli.com.br"
+PAGS = ["", "obras.html", "sobre.html", "encomendar.html", "lojas.html", "contato.html", "privacidade.html"]
+(AQUI / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
+(AQUI / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    + "".join(f"  <url><loc>{SITE}/{p}</loc></url>\n" for p in PAGS) + "</urlset>\n", encoding="utf-8")
 (AQUI / "favicon.svg").write_text(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">{simbolo(100)[simbolo(100).index(">") + 1:-6]}</svg>', encoding="utf-8")
 print("site ok")
