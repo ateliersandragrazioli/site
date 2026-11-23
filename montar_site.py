@@ -322,6 +322,8 @@ DISPONIVEIS = [
      "Tigela de barro cinza de borda ondulada, com esmalte por dentro em tons de lilás, azul, mel e verde"),
     ("peca-travessa-escura", "Travessa orgânica esmaltada", "35 × 22 cm",
      "Travessa grande de forma orgânica, em esmalte marrom-escuro brilhante com pontinhos dourados"),
+    ("peca-tigela-oliva-grande", "Tigela grande verde-oliva", "28 × 31 cm",
+     "Tigela grande de bordas dobradas, em esmalte verde-oliva com reflexos dourados e borda escura"),
 ]
 
 PERGUNTAS = [
