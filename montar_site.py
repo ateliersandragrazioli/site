@@ -287,6 +287,8 @@ DISPONIVEIS = [
      "Peça oval de cerâmica cinza com esmalte em vermelho, laranja, lilás e verde, dentro de caixa de acrílico"),
     ("peca-folha", "Tigela com folhas", "21 × 17 cm",
      "Tigela branca de bordas curvas com desenho de folhas em tom bronze"),
+    ("peca-tigela-oval", "Tigela oval esmaltada", "19 × 13 cm",
+     "Tigela oval branca com bordas escuras e centro em verde, azul e lilás com esmalte craquelado"),
     ("peca-branca", "Peça branca orgânica", "25 × 22 cm",
      "Peça branca de bordas onduladas, como uma flor aberta"),
 ]
