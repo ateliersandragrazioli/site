@@ -428,7 +428,7 @@ def encomendar():
   <div class="perguntas">{perguntas}</div>
 </div></section>
 """
-    return pagina("Como encomendar · Sandra Grazioli", "Como encomendar uma peça de Sandra Grazioli: orçamento pelo WhatsApp, Pix, prazo e entrega.", corpo, atual="encomendar")
+    return pagina("Como encomendar · Sandra Grazioli", "Como encomendar uma peça de Sandra Grazioli: orçamento pelo WhatsApp, pagamento e entrega combinados com você.", corpo, atual="encomendar")
 
 
 def lojas():
