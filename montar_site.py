@@ -77,6 +77,11 @@ h2 { font-size: clamp(30px, 4vw, 44px); }
 .menu { display: flex; gap: 26px; align-items: center; font-size: 15px; }
 .menu a { text-decoration: none; padding: 6px 0; }
 .menu a:hover { color: var(--azul); }
+.tem-sub { position: relative; }
+.tem-sub.ativo > a { color: var(--azul); }
+.sub-menu { display: none; position: absolute; top: 100%; left: -16px; background: var(--branco); border: 1px solid var(--fio); box-shadow: 0 12px 24px -12px rgba(47,38,31,.25); padding: 8px 0; min-width: 160px; z-index: 30; }
+.sub-menu a { display: block; padding: 10px 18px; }
+.tem-sub:hover .sub-menu, .tem-sub:focus-within .sub-menu { display: block; }
 .menu a[aria-current=page] { color: var(--azul); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
 .menu .btn { padding: 10px 18px; font-size: 14px; }
 .menu-btn { display: none; background: none; border: 1px solid var(--pedra); border-radius: 6px; font: inherit; font-size: 15px; padding: 8px 14px; color: var(--tinta); cursor: pointer; }
@@ -87,6 +92,9 @@ h2 { font-size: clamp(30px, 4vw, 44px); }
   .menu a { padding: 14px 0; border-bottom: 1px solid var(--fio); font-size: 18px; }
   .menu .btn { margin-top: 14px; text-align: center; border-bottom: 0; }
   .marca-nome { font-size: 16px; }
+  .tem-sub { display: grid; }
+  .sub-menu { display: block; position: static; border: 0; box-shadow: none; padding: 0 0 0 18px; background: none; min-width: 0; }
+  .sub-menu a { padding: 12px 0; font-size: 17px; }
 }
 
 .btn { display: inline-block; background: var(--azul); color: #fff; text-decoration: none; padding: 15px 28px; border-radius: 4px; font-weight: 400; letter-spacing: .04em; font-size: 17px; }
@@ -122,6 +130,14 @@ main { min-height: 50vh; }
 @media (max-width: 520px) { .disp { grid-template-columns: 1fr 1fr; gap: 18px; } .peca h3 { font-size: 17px; } }
 .loja { display: flex; gap: 22px; align-items: center; }
 .logo-loja { width: 84px; height: 84px; border-radius: 50%; flex: none; }
+.portas { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+.porta { text-decoration: none; display: grid; gap: 10px; }
+.porta img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; transition: opacity .2s; }
+.porta:hover img { opacity: .9; }
+.porta h2 { margin: 0; }
+.porta p { margin: 0 0 8px; color: var(--apoio); }
+.porta .btn-linha { justify-self: start; }
+@media (max-width: 760px) { .portas { grid-template-columns: 1fr; } }
 /* Séries */
 section.bloco { padding: 90px 0; }
 .bloco.linho { background: var(--linho); }
@@ -204,8 +220,13 @@ JS = """<script>
 
 
 def pagina(titulo, descricao, corpo, atual=""):
-    nav = [("Painéis", "paineis"), ("Peças", "pecas"), ("Sobre", "sobre"), ("Como encomendar", "encomendar"), ("Onde encontrar", "lojas"), ("Contato", "contato")]
-    menu = "".join(f'<a href="{i}.html"{" aria-current=page" if i == atual else ""}>{t}</a>' for t, i in nav)
+    cur = lambda i: ' aria-current="page"' if i == atual else ""
+    em_obras = atual in ("obras", "paineis", "pecas")
+    obras_menu = (f'<div class="tem-sub{" ativo" if em_obras else ""}"><a href="obras.html"{cur("obras")}>Obras</a>'
+                  f'<div class="sub-menu" aria-label="Obras"><a href="paineis.html"{cur("paineis")}>Painéis</a>'
+                  f'<a href="pecas.html"{cur("pecas")}>Peças</a></div></div>')
+    nav = [("Sobre", "sobre"), ("Como encomendar", "encomendar"), ("Onde encontrar", "lojas"), ("Contato", "contato")]
+    menu = obras_menu + "".join(f'<a href="{i}.html"{cur(i)}>{t}</a>' for t, i in nav)
     email = (f'<a href="mailto:{DADOS["email"]}">{DADOS["email"]}</a>' if DADOS["email"] else f'E-mail: {FALTA}')
     whats = (f'<a href="{link_whats()}" target="_blank" rel="noopener">WhatsApp {fone_bonito()}</a>' if DADOS["whatsapp"] else f'WhatsApp: {FALTA}')
     return f"""<!doctype html>
@@ -393,6 +414,22 @@ def de_parede(t):
     return t.startswith("Série")
 
 
+def obras():
+    card = lambda href, foto, alt, olho, t, d, btn: (
+        f'<a class="porta" href="{href}">{img(foto, alt, sizes="(max-width: 860px) 100vw, 50vw")}'
+        f'<span class="olho">{olho}</span><h2>{t}</h2><p>{d}</p><span class="btn-linha">{btn}</span></a>')
+    corpo = f"""
+<section class="bloco branco"><div class="wrap">
+  {cab_pagina("Obras", "Painéis de parede e peças únicas", "Dois lados do meu trabalho: os painéis, que vestem uma parede, e as pecinhas de decoração, que nascem entre um painel e outro.")}
+  <div class="portas">
+    {card("paineis.html", "ig-painel-azul-mao", "Painel de cerâmica em azul e branco em moldura de madeira", "O foco do ateliê", "Painéis", "Peças de parede que, juntas, compõem um painel. Sob encomenda, para casas e projetos de arquitetura.", "Ver os painéis")}
+    {card("pecas.html", "peca-turquesa", "Peça decorativa de cerâmica em verde-água com veio azul", "Pronta entrega", "Peças", "Peças únicas para a mesinha de canto, o lavabo ou o criado-mudo. Um presente especial.", "Ver as peças")}
+  </div>
+</div></section>
+"""
+    return pagina("Obras · Sandra Grazioli", "Obras de Sandra Grazioli: painéis de parede em cerâmica e peças únicas para decoração.", corpo, atual="obras")
+
+
 def paineis():
     series = "".join(f'<article class="serie">{img(f, alt)}<h3>{t}</h3><p>{d}</p></article>' for f, t, d, alt in SERIES)
     corpo = f"""
@@ -570,12 +607,12 @@ def privacidade():
     return pagina("Privacidade e cookies · Sandra Grazioli", "Como o site de Sandra Grazioli Arte Cerâmica trata os seus dados.", corpo, atual="privacidade")
 
 
-for nome, fn in [("index", index), ("paineis", paineis), ("pecas", pecas), ("sobre", sobre), ("encomendar", encomendar), ("lojas", lojas), ("contato", contato)]:
+for nome, fn in [("index", index), ("obras", obras), ("paineis", paineis), ("pecas", pecas), ("sobre", sobre), ("encomendar", encomendar), ("lojas", lojas), ("contato", contato)]:
     (AQUI / f"{nome}.html").write_text(fn(), encoding="utf-8")
 (AQUI / "privacidade.html").write_text(privacidade(), encoding="utf-8")
 (AQUI / "404.html").write_text(erro404(), encoding="utf-8")
 SITE = "https://sandragrazioli.com.br"
-PAGS = ["", "paineis.html", "pecas.html", "sobre.html", "encomendar.html", "lojas.html", "contato.html", "privacidade.html"]
+PAGS = ["", "obras.html", "paineis.html", "pecas.html", "sobre.html", "encomendar.html", "lojas.html", "contato.html", "privacidade.html"]
 (AQUI / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 (AQUI / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     + "".join(f"  <url><loc>{SITE}/{p}</loc></url>\n" for p in PAGS) + "</urlset>\n", encoding="utf-8")

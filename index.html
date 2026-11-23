@@ -45,6 +45,11 @@ h2 { font-size: clamp(30px, 4vw, 44px); }
 .menu { display: flex; gap: 26px; align-items: center; font-size: 15px; }
 .menu a { text-decoration: none; padding: 6px 0; }
 .menu a:hover { color: var(--azul); }
+.tem-sub { position: relative; }
+.tem-sub.ativo > a { color: var(--azul); }
+.sub-menu { display: none; position: absolute; top: 100%; left: -16px; background: var(--branco); border: 1px solid var(--fio); box-shadow: 0 12px 24px -12px rgba(47,38,31,.25); padding: 8px 0; min-width: 160px; z-index: 30; }
+.sub-menu a { display: block; padding: 10px 18px; }
+.tem-sub:hover .sub-menu, .tem-sub:focus-within .sub-menu { display: block; }
 .menu a[aria-current=page] { color: var(--azul); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
 .menu .btn { padding: 10px 18px; font-size: 14px; }
 .menu-btn { display: none; background: none; border: 1px solid var(--pedra); border-radius: 6px; font: inherit; font-size: 15px; padding: 8px 14px; color: var(--tinta); cursor: pointer; }
@@ -55,6 +60,9 @@ h2 { font-size: clamp(30px, 4vw, 44px); }
   .menu a { padding: 14px 0; border-bottom: 1px solid var(--fio); font-size: 18px; }
   .menu .btn { margin-top: 14px; text-align: center; border-bottom: 0; }
   .marca-nome { font-size: 16px; }
+  .tem-sub { display: grid; }
+  .sub-menu { display: block; position: static; border: 0; box-shadow: none; padding: 0 0 0 18px; background: none; min-width: 0; }
+  .sub-menu a { padding: 12px 0; font-size: 17px; }
 }
 
 .btn { display: inline-block; background: var(--azul); color: #fff; text-decoration: none; padding: 15px 28px; border-radius: 4px; font-weight: 400; letter-spacing: .04em; font-size: 17px; }
@@ -90,6 +98,14 @@ main { min-height: 50vh; }
 @media (max-width: 520px) { .disp { grid-template-columns: 1fr 1fr; gap: 18px; } .peca h3 { font-size: 17px; } }
 .loja { display: flex; gap: 22px; align-items: center; }
 .logo-loja { width: 84px; height: 84px; border-radius: 50%; flex: none; }
+.portas { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+.porta { text-decoration: none; display: grid; gap: 10px; }
+.porta img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; transition: opacity .2s; }
+.porta:hover img { opacity: .9; }
+.porta h2 { margin: 0; }
+.porta p { margin: 0 0 8px; color: var(--apoio); }
+.porta .btn-linha { justify-self: start; }
+@media (max-width: 760px) { .portas { grid-template-columns: 1fr; } }
 /* Séries */
 section.bloco { padding: 90px 0; }
 .bloco.linho { background: var(--linho); }
@@ -169,7 +185,7 @@ section.bloco { padding: 90px 0; }
 <header class="topo"><div class="wrap">
   <a class="marca" href="index.html" aria-label="Sandra Grazioli Arte Cerâmica, página inicial"><svg width="40" height="40" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect x="3" y="3" width="94" height="94" rx="3" fill="none" stroke="#2f261f" stroke-width="4"/><rect x="12" y="12" width="76" height="76" rx="2" fill="#6b5440"/><path d="M12 62 C28 50 40 76 57 59 S82 36 88 41 V88 H12 Z" fill="#f1ece3"/></svg><span class="marca-txt"><span class="marca-nome">Sandra Grazioli</span><span class="marca-desc">Arte Cerâmica</span></span></a>
   <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
-  <nav id="menu" class="menu" aria-label="Menu principal"><a href="paineis.html">Painéis</a><a href="pecas.html">Peças</a><a href="sobre.html">Sobre</a><a href="encomendar.html">Como encomendar</a><a href="lojas.html">Onde encontrar</a><a href="contato.html">Contato</a><a class="btn" href="https://wa.me/5511991811971?text=Ol%C3%A1%2C%20Sandra%21%20Vi%20suas%20pe%C3%A7as%20no%20site%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener">WhatsApp</a></nav>
+  <nav id="menu" class="menu" aria-label="Menu principal"><div class="tem-sub"><a href="obras.html">Obras</a><div class="sub-menu" aria-label="Obras"><a href="paineis.html">Painéis</a><a href="pecas.html">Peças</a></div></div><a href="sobre.html">Sobre</a><a href="encomendar.html">Como encomendar</a><a href="lojas.html">Onde encontrar</a><a href="contato.html">Contato</a><a class="btn" href="https://wa.me/5511991811971?text=Ol%C3%A1%2C%20Sandra%21%20Vi%20suas%20pe%C3%A7as%20no%20site%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener">WhatsApp</a></nav>
 </div></header>
 <main id="conteudo">
 
