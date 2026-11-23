@@ -7,7 +7,7 @@ AQUI = Path(__file__).parent
 
 DADOS = {
     "nome": "Sandra Grazioli Arte Cerâmica",
-    "whatsapp": "",          # só números com DDI, ex.: 5511999999999. Vazio = botões levam para o Contato.
+    "whatsapp": "5511991811971",          # só números com DDI, ex.: 5511999999999. Vazio = botões levam para o Contato.
     "email": "ateliersandragrazioli@gmail.com",             # vazio = mostra "em breve"
     "instagram": "ateliersandragrazioli",
     "lojas": [               # (nome, cidade ou bairro, link opcional). A Bárbara vai mandar a lista.
@@ -17,6 +17,11 @@ DADOS = {
 MSG_WHATS = "Olá, Sandra! Vi suas peças no site e gostaria de saber mais."
 
 FALTA = '<span class="falta">a preencher</span>'
+
+
+def fone_bonito():
+    n = DADOS["whatsapp"][2:]  # tira o 55
+    return f"({n[:2]}) {n[2:7]}-{n[7:]}"
 
 
 def link_whats(msg=MSG_WHATS):
@@ -200,7 +205,7 @@ def pagina(titulo, descricao, corpo, atual=""):
     nav = [("Obras", "obras"), ("Sobre", "sobre"), ("Como encomendar", "encomendar"), ("Onde encontrar", "lojas"), ("Contato", "contato")]
     menu = "".join(f'<a href="{i}.html"{" aria-current=page" if i == atual else ""}>{t}</a>' for t, i in nav)
     email = (f'<a href="mailto:{DADOS["email"]}">{DADOS["email"]}</a>' if DADOS["email"] else f'E-mail: {FALTA}')
-    whats = (f'<a href="{link_whats()}" target="_blank" rel="noopener">WhatsApp</a>' if DADOS["whatsapp"] else f'WhatsApp: {FALTA}')
+    whats = (f'<a href="{link_whats()}" target="_blank" rel="noopener">WhatsApp {fone_bonito()}</a>' if DADOS["whatsapp"] else f'WhatsApp: {FALTA}')
     return f"""<!doctype html>
 <html lang="pt-BR">
 <head>
@@ -446,7 +451,7 @@ def contato():
   <p>Me mande uma mensagem contando qual peça você gostou ou o que você imagina. Eu respondo pessoalmente.</p>
   <div class="acoes">{botao_whats()}<a class="btn-linha" href="https://instagram.com/{DADOS["instagram"]}" target="_blank" rel="noopener">Ver o Instagram</a></div>
   <div class="dados">
-    <span>WhatsApp: {DADOS["whatsapp"] and "+" + DADOS["whatsapp"] or FALTA}</span>
+    <span>WhatsApp: {f'<a href="{link_whats()}" target="_blank" rel="noopener">{fone_bonito()}</a>' if DADOS["whatsapp"] else FALTA}</span>
     <span>E-mail: {DADOS["email"] or FALTA}</span>
     <span>Instagram: @{DADOS["instagram"]}</span>
   </div>
