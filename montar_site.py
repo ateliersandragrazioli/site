@@ -103,6 +103,12 @@ h2 { font-size: clamp(30px, 4vw, 44px); }
 .h-pag { font-size: clamp(32px, 4.6vw, 52px); }
 .retrato-vazio { aspect-ratio: 4 / 5; background: var(--pedra); display: grid; place-content: center; text-align: center; gap: 10px; color: var(--apoio); font-family: "Marcellus", serif; letter-spacing: .1em; font-size: 20px; }
 main { min-height: 50vh; }
+.atelie { display: grid; grid-template-columns: 1fr minmax(260px, 380px); gap: 64px; align-items: center; }
+.atelie h2 { margin-bottom: 18px; }
+.atelie p { color: var(--apoio); font-size: 19px; }
+.atelie video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: var(--pedra); }
+@media (max-width: 760px) { .atelie { grid-template-columns: 1fr; gap: 28px; } .atelie video { max-width: 380px; margin: 0 auto; } }
+@media (prefers-reduced-motion: reduce) { .atelie video { animation: none; } }
 /* Séries */
 section.bloco { padding: 90px 0; }
 .bloco.linho { background: var(--linho); }
@@ -320,6 +326,14 @@ def sobre():
     <p>Abrir o forno é a hora mais ansiosa e mais gostosa. Às vezes a peça sai completamente diferente do que eu imaginei, porque os esmaltes reagem de outro jeito. Ver o barro que eu amassei virar uma peça é mágico.</p>
     <p class="citacao italico">“E aí está a arte do fogo, que tudo transforma.”</p>
   </div>
+</div></section>
+<section class="bloco branco"><div class="wrap atelie">
+  <div>
+    <p class="olho">No ateliê</p><h2>Do barro à peça</h2>
+    <p>Antes do esmalte e do forno, cada placa nasce assim: o barro aberto à mão, as linhas riscadas uma a uma e a textura feita com calma, até a peça ganhar o seu desenho.</p>
+  </div>
+  <video src="videos/atelie-barro.mp4" poster="videos/atelie-barro.jpg" autoplay muted loop playsinline controls preload="metadata"
+    aria-label="Vídeo: as mãos da Sandra riscando linhas e texturas numa placa de barro no ateliê"></video>
 </div></section>
 """
     return pagina("Sobre · Sandra Grazioli", "Quem é Sandra Grazioli e como nasce cada peça de cerâmica.", corpo, atual="sobre")
